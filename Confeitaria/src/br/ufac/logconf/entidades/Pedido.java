@@ -1,9 +1,13 @@
 package br.ufac.logconf.entidades;
 
-import java.util.ArrayList;
+
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.*;
+
+
+
 
 @Entity
 @Table(name="pedidos")
@@ -20,7 +24,8 @@ public class Pedido {
 	@Column(nullable=false, length=50)
 	private String status;
 	@Column(nullable=false, length=100)
-	private List<Material> materiais = new ArrayList<Material>();
+	@OneToMany(mappedBy="materiais", targetEntity = Material.class, fetch = FetchType.LAZY)
+	private Collection<Material> materiais;
 	
 	
 	public int getId() {
@@ -36,7 +41,7 @@ public class Pedido {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public List<Material> getMateriais() {
+	public Collection<Material> getMateriais() {
 		return materiais;
 	}
 	public void setMateriais(List<Material> materiais) {
