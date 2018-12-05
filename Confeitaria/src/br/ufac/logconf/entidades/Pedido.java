@@ -2,7 +2,6 @@ package br.ufac.logconf.entidades;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.*;
@@ -24,9 +23,8 @@ public class Pedido {
 	private int id;
 	@Column(nullable=false, length=50)
 	private String status;
-	@Column(nullable=false, length=200)
-	@OneToMany(cascade=CascadeType.MERGE)
-	@JoinColumn(name="material_fk")
+	@Column(name = "materiais", nullable=false)
+	//@OneToMany(mappedBy="pedido", cascade=CascadeType.ALL, orphanRemoval = true)
 	private List<Material> materiais = new ArrayList<>();
 	
 	
@@ -51,9 +49,11 @@ public class Pedido {
 	}
 	
 	public void addMaterial(Material m) {
+		m.setPedido(this);
 		materiais.add(m);
 	}
 	public void delMaterial(Material m) {
+		m.setPedido(null);
 		materiais.remove(m);
 	}
 	

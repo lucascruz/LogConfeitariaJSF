@@ -14,31 +14,54 @@ public class PedidoTeste {
 		
 		Material m1, m2, m3;
 		Pedido p1, p2, p3;
-		List<Material> materiais;
+		
+		List<Pedido> pedidos;
 		
 		
 		
-		m1=mr.recuperar(1);
-		m2=mr.recuperar(2);
-		m3=mr.recuperar(3);
+		m1=mr.recuperar(11);
+		m2=mr.recuperar(22);
+		m3=mr.recuperar(33);
 		
-		
-		
-		
+	
 		p1=new Pedido();
 		p1.setId(1);
 		p1.setStatus("Efetuado");
 		System.out.println("Adicionando items no pedido..");
 		p1.addMaterial(m1);
 		p1.addMaterial(m2);
-		p1.addMaterial(m2);
+		p1.addMaterial(m3);
+		
+		pr.adicionar(p1);
+		
+		
+		p2=new Pedido();
+		p2.setId(2);
+		p2.setStatus("Não enviado");
+		System.out.println("Adicionando items no pedido..");
+		p2.addMaterial(m1);
+		p2.addMaterial(m2);
+		p2.addMaterial(m2);
+		
+		pr.adicionar(p2);
 	
-
-		System.out.println("Listando pedido, todos...");
-		materiais = mr.recuperarTodos();
-		for (Material material : materiais) {
-			System.out.println(materiais);
+		p3=new Pedido();
+		p3.setId(3);
+		p3.setStatus("Retornando");
+		System.out.println("Adicionando items no pedido..");
+		p3.addMaterial(m1);
+		p3.addMaterial(m3);
+		p3.addMaterial(m3);
+		
+		pr.adicionar(p3);
+		
+	
+		System.out.println("Listando Pedido, todos...");
+		pedidos = pr.recuperarTodos();
+		for (Pedido pedido : pedidos) {
+			System.out.println(pedido);
 		}
+
 		
 		
 		

@@ -2,6 +2,7 @@ package br.ufac.logconf.entidades;
 //import java.util.*;
 import javax.persistence.*;
 
+
 @Entity
 @Table(name="materiais")
 @NamedQueries({
@@ -26,9 +27,13 @@ public class Material {
 	
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="categoria_fk")
-	
 	private Categoria categoria;	
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	 @JoinColumn(name = "solicitacao_fk")
+	 private Pedido pedido;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -65,6 +70,13 @@ public class Material {
 	public void setDataSaida(String dataSaida) {
 		this.dataSaida = dataSaida;
 		
+	}
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 	
 	public Categoria getCategoria() {
