@@ -14,13 +14,33 @@ public class PedidoTeste {
 		
 		Material m1, m2, m3;
 		Pedido p1, p2, p3;
-		List<Material> materiais = null;
+		List<Material> materiais;
+		
+		
+		
+		m1=mr.recuperar(1);
+		m2=mr.recuperar(2);
+		m3=mr.recuperar(3);
+		
+		
+		
 		
 		p1=new Pedido();
 		p1.setId(1);
 		p1.setStatus("Efetuado");
-		p1.setMateriais(materiais);
+		System.out.println("Adicionando items no pedido..");
+		p1.addMaterial(m1);
+		p1.addMaterial(m2);
+		p1.addMaterial(m2);
 	
+
+		System.out.println("Listando pedido, todos...");
+		materiais = mr.recuperarTodos();
+		for (Material material : materiais) {
+			System.out.println(materiais);
+		}
+		
+		
 		
 //		c2=new Categoria();
 //		c2.setId(2);
@@ -71,7 +91,7 @@ public class PedidoTeste {
 //			System.out.println(categoria);
 //		}
 		pr.encerrar();
-
+		mr.encerrar();
 	}
 
 }

@@ -1,6 +1,7 @@
 package br.ufac.logconf.entidades;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Table(name="pedidos")
 @NamedQueries({
 @NamedQuery(name="Pedido.todos", query="SELECT p FROM Pedido p"),
-@NamedQuery(name="Pedido.todosPorNome", query="SELECT p FROM Pedido p ORDER BY p.nome"),
+@NamedQuery(name="Pedido.todosPorNome", query="SELECT p FROM Pedido p ORDER BY p.id"),
 @NamedQuery(name="Pedido.todosPorID", query="SELECT p FROM Pedido p WHERE p.id LIKE :id ORDER BY p.id")
 })
 
@@ -23,9 +24,10 @@ public class Pedido {
 	private int id;
 	@Column(nullable=false, length=50)
 	private String status;
-	@Column(nullable=false, length=100)
-	@OneToMany(mappedBy="materiais", targetEntity = Material.class, fetch = FetchType.LAZY)
-	private Collection<Material> materiais;
+	@Column(nullable=false, length=200)
+	@OneToMany(cascade=CascadeType.MERGE)
+	@JoinColumn(name="material_fk")
+	private List<Material> materiais = new ArrayList<>();
 	
 	
 	public int getId() {
@@ -41,7 +43,7 @@ public class Pedido {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Collection<Material> getMateriais() {
+	public List<Material> getMateriais() {
 		return materiais;
 	}
 	public void setMateriais(List<Material> materiais) {
