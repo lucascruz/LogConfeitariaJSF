@@ -44,12 +44,6 @@ public class PedidoRepositorio {
 			
 		}
 		@SuppressWarnings("unchecked")
-		public List<Pedido> recuperarTodosPorNome(){
-			return em.createNamedQuery("Pedido.todosPorNome").getResultList();
-			
-		}
-		
-		@SuppressWarnings("unchecked")
 		public List<Pedido> recuperarTodosPorID(int id){
 			return em.createNamedQuery("Pedido.todosPorID").setParameter("id", id).getResultList();
 			

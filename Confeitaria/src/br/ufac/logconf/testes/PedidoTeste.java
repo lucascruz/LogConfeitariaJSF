@@ -33,6 +33,7 @@ public class PedidoTeste {
 		p1.addMaterial(m3);
 		
 		pr.adicionar(p1);
+		m1.setPedido(p1);
 		
 		
 		p2=new Pedido();
@@ -44,6 +45,7 @@ public class PedidoTeste {
 		p2.addMaterial(m2);
 		
 		pr.adicionar(p2);
+		m2.setPedido(p2);
 	
 		p3=new Pedido();
 		p3.setId(3);
@@ -53,7 +55,9 @@ public class PedidoTeste {
 		p3.addMaterial(m3);
 		p3.addMaterial(m3);
 		
+		
 		pr.adicionar(p3);
+		m3.setPedido(p3);
 		
 	
 		System.out.println("Listando Pedido, todos...");

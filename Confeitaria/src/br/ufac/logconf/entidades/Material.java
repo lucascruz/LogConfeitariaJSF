@@ -29,9 +29,9 @@ public class Material {
 	@JoinColumn(name="categoria_fk")
 	private Categoria categoria;	
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "solicitacao_fk")
-	 private Pedido pedido;
+	@ManyToOne
+	@JoinColumn(name = "pedido_fk")
+	private Pedido pedido;
 	
 	
 	public int getId() {
