@@ -22,8 +22,8 @@ public class Pedido {
 	private int id;
 	@Column(nullable=false, length=50)
 	private String status;
-	@OneToMany(mappedBy = "pedido")
-	private Collection<Material> materiais;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private List<ItemPedido> itemspedidos;
 	
 	
 	public int getId() {
@@ -39,24 +39,24 @@ public class Pedido {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Collection<Material> getMateriais() {
-		return materiais;
+	public Collection<ItemPedido> getMateriais() {
+		return itemspedidos;
 	}
-	public void setMateriais(List<Material> materiais) {
-		this.materiais = materiais;
+	public void setPedidos(List<ItemPedido> itempedido) {
+		this.itemspedidos = itempedido;
 	}
 	
-	public void addMaterial(Material m) {
-		m.setPedido(this);
-		materiais.add(m);
+	public void addItemPedido(ItemPedido ip) {
+		ip.setPedido(this);
+		itemspedidos.add(ip);
 	}
-	public void delMaterial(Material m) {
-		m.setPedido(null);
-		materiais.remove(m);
+	public void delMaterial(ItemPedido ip) {
+		ip.setPedido(null);
+		itemspedidos.remove(ip);
 	}
 	
 	public String toString() {
-		return String.format("Categoria [id=%d, status=\"%s\", materiais=%d]", id, status, materiais.size());
+		return String.format("Categoria [id=%d, status=\"%s\", materiais=%d]", id, status, itemspedidos.size());
 	}
 	
 }

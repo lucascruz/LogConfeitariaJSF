@@ -16,37 +16,37 @@ public class ItemPedidoRepositorio {
 			em = emf.createEntityManager();
 		}
 		
-		public void adicionar(Pedido pedido) {
+		public void adicionar(ItemPedido itempedido) {
 			
 			em.getTransaction().begin();
-			em.persist(pedido);
+			em.persist(itempedido);
 			em.getTransaction().commit();
 			
 		}
 		
-		public Pedido recuperar(int id) {
-			return em.find(Pedido.class, id);
+		public ItemPedido recuperar(int id) {
+			return em.find(ItemPedido.class, id);
 			
 		}
 		
-		public void atualizar(Pedido pedido) {
+		public void atualizar(ItemPedido itempedido) {
 			em.getTransaction().begin();
-			em.merge(pedido);
+			em.merge(itempedido);
 			em.getTransaction().commit();
 		}
-		public void remover(Pedido pedido) {
+		public void remover(ItemPedido itempedido) {
 			em.getTransaction().begin();
-			em.remove(pedido);
+			em.remove(itempedido);
 			em.getTransaction().commit();
 		}
 		@SuppressWarnings("unchecked")
-		public List<Pedido> recuperarTodos(){
-			return em.createNamedQuery("Pedido.todos").getResultList();
+		public List<ItemPedido> recuperarTodos(){
+			return em.createNamedQuery("ItemPedido.todos").getResultList();
 			
 		}
 		@SuppressWarnings("unchecked")
-		public List<Pedido> recuperarTodosPorNome(){
-			return em.createNamedQuery("Pedido.todosPorNome").getResultList();
+		public List<ItemPedido> recuperarTodosPorNome(){
+			return em.createNamedQuery("ItemPedido.todosPorNome").getResultList();
 			
 		}
 		

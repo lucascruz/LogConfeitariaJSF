@@ -10,56 +10,34 @@ public class PedidoTeste {
 	public static void main(String[] args) {
 		
 		PedidoRepositorio pr = new PedidoRepositorio();
-		MaterialRepositorio mr = new MaterialRepositorio();
+	//	MaterialRepositorio mr = new MaterialRepositorio();
 		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
 		
-		Material m1, m2, m3;
+		ItemPedido ip1, ip2, ip3;
 		Pedido p1, p2, p3;
 		
 		List<Pedido> pedidos;
 		
 		
 		
-		m1=mr.recuperar(11);
-		m2=mr.recuperar(22);
-		m3=mr.recuperar(33);
+		ip1=ipr.recuperar(1);
+		ip2=ipr.recuperar(2);
+		ip3=ipr.recuperar(3);
 		
 		
 	
 		p1=new Pedido();
 		p1.setId(1);
 		p1.setStatus("Efetuado");
-		System.out.println("Adicionando items no pedido..");
-		p1.addMaterial(m1);
-		p1.addMaterial(m2);
-		p1.addMaterial(m3);
+		System.out.println("Adicionando items no pedido..1");
+		p1.addItemPedido(ip1);
+		p1.addItemPedido(ip2);
+		p1.addItemPedido(ip3);
 		
-		ipr.adicionar(p1);
-		
-		p2=new Pedido();
-		p2.setId(2);
-		p1.setStatus("Efetuado");
-		System.out.println("Adicionando items no pedido..");
-		p2.addMaterial(m1);
-		p2.addMaterial(m2);
-		p2.addMaterial(m3);
-		
-		ipr.adicionar(p2);
-	
-		p3=new Pedido();
-		p3.setId(3);
-		p3.setStatus("Efetuado");
-		System.out.println("Adicionando items no pedido..");
-		p3.addMaterial(m1);
-		p3.addMaterial(m2);
-		p3.addMaterial(m3);
-		
-		ipr.adicionar(p3);
 
-		
 	
 		System.out.println("Listando Pedido, todos...");
-		pedidos = ipr.recuperarTodos();
+		pedidos = pr.recuperarTodos();
 		for (Pedido pedido : pedidos) {
 			System.out.println(pedido);
 		}
@@ -116,7 +94,7 @@ public class PedidoTeste {
 //			System.out.println(categoria);
 //		}
 		pr.encerrar();
-		mr.encerrar();
+		ipr.encerrar();
 	}
 
 }

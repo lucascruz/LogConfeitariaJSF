@@ -24,8 +24,8 @@ public class Material {
 	@JoinColumn(name="categoria_fk")
 	private Categoria categoria;	
 	@ManyToOne
-	@JoinColumn(name = "pedido_fk")
-	private Pedido pedido;
+	@JoinColumn(name = "itempedido_fk")
+	private ItemPedido itempedido;
 	
 	
 	public int getId() {
@@ -46,12 +46,12 @@ public class Material {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Pedido getPedido() {
-		return pedido;
+	public ItemPedido getPedido() {
+		return itempedido;
 	}
 
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
+	public void setItemPedido(ItemPedido itempedido) {
+		this.itempedido = itempedido;
 	}
 	
 	public Categoria getCategoria() {
@@ -66,6 +66,10 @@ public class Material {
 	public void setDataValidade(String dataValidade) {
 		this.dataValidade = dataValidade;
 	}
+	
+	
+	
+	
 	public String toString() {
 		return String.format("Material [id=%d, nome=\"%s\", descricao=\"%s\", categoria=\"%s\", DataValidade=\"%s\"]", id, nome, descricao, categoria, dataValidade);
 	}

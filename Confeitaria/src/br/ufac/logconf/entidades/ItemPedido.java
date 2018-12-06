@@ -1,5 +1,7 @@
 package br.ufac.logconf.entidades;
-//import java.util.*;
+import java.time.LocalDate;
+//import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.*;
 
 
@@ -16,15 +18,17 @@ public class ItemPedido {
 	@Column(nullable=false, length=50)
 	private int quantidade;
 	@Column(nullable=false, length=10)
-	private String dataEntrada;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataEntrada;
 	@Column(nullable=false, length=10)
-	private String dataSaida;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataSaida;
 	
-	@ManyToMany(cascade=CascadeType.MERGE)
+	@OneToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="material_fk")
 	private Material material;	
 
-	@ManyToMany
+	@OneToMany
 	@JoinColumn(name = "pedido_fk")
 	private Pedido pedido;
 	
@@ -40,19 +44,6 @@ public class ItemPedido {
 	}
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
-	}
-	public String getDataEntrada() {
-		return dataEntrada;
-	}
-	public void setDataEntrada(String dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-	public String getDataSaida() {
-		return dataSaida;
-	}
-	public void setDataSaida(String dataSaida) {
-		this.dataSaida = dataSaida;
-		
 	}
 	public Pedido getPedido() {
 		return pedido;
@@ -70,6 +61,18 @@ public class ItemPedido {
 	}
 	public String toString() {
 		return String.format("Material [id=%d, nome=\"%s\", descricao=\"%s\", quantidade=%d, dataEntrada=\"%s\", dataSaida=\"%s\", categoria=\"%s\"]", id, quantidade, dataEntrada, dataSaida);
+	}
+	public Date getDataEntrada() {
+		return dataEntrada;
+	}
+	public void setDataEntrada(Date dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
+	public Date getDataSaida() {
+		return dataSaida;
+	}
+	public void setDataSaida(Date dataSaida) {
+		this.dataSaida = dataSaida;
 	}
 
 	
