@@ -1,7 +1,7 @@
 package br.ufac.logconf.entidades;
-import java.time.LocalDate;
-//import java.time.LocalDate;
-import java.util.Date;
+
+import java.time.LocalDateTime;
+
 import javax.persistence.*;
 
 
@@ -17,13 +17,12 @@ public class ItemPedido {
 	private int id;
 	@Column(nullable=false, length=50)
 	private int quantidade;
+	/*	@Column(nullable=false, length=10)
+	@Temporal(TemporalType.TIMESTAMP)
+	private LocalDateTime dataEntrada;
 	@Column(nullable=false, length=10)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataEntrada;
-	@Column(nullable=false, length=10)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataSaida;
-	
+	private LocalDateTime dataSaida;*/
 	@OneToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="material_fk")
 	private Material material;	
@@ -60,23 +59,7 @@ public class ItemPedido {
 		this.material = material;
 	}
 	public String toString() {
-		return String.format("Material [id=%d, nome=\"%s\", descricao=\"%s\", quantidade=%d, dataEntrada=\"%s\", dataSaida=\"%s\", categoria=\"%s\"]", id, quantidade, dataEntrada, dataSaida);
+		return String.format("Material [id=%d, nome=\"%s\", descricao=\"%s\", quantidade=%d, dataEntrada=\"%s\", dataSaida=\"%s\", categoria=\"%s\"]", id, quantidade);
 	}
-	public Date getDataEntrada() {
-		return dataEntrada;
-	}
-	public void setDataEntrada(Date dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-	public Date getDataSaida() {
-		return dataSaida;
-	}
-	public void setDataSaida(Date dataSaida) {
-		this.dataSaida = dataSaida;
-	}
-
-	
-	
-	
 	
 }

@@ -25,7 +25,7 @@ public class MaterialTeste {
 		m1.setId(11);
 		m1.setNome("Leite");
 		m1.setDescricao("LeiteBom");
-		m1.setDataValidade("12/10/2010");
+		//m1.setDataValidade("12/10/2010");
 		m1.setCategoria(c1);
 		
 		
@@ -33,14 +33,14 @@ public class MaterialTeste {
 		m2.setId(22);
 		m2.setNome("Margarina");
 		m2.setDescricao("Delicia");
-		m2.setDataValidade("12/10/2010");
+		//m2.setDataValidade("12/10/2010");
 		m2.setCategoria(c1);
 		
 		m3 = new Material();
 		m3.setId(33);
 		m3.setNome("Trigo");
 		m3.setDescricao("Sol");
-		m3.setDataValidade("12/10/2010");
+		//m3.setDataValidade("12/10/2010");
 		m3.setCategoria(c2);
 		
 		
