@@ -22,7 +22,7 @@ public class PedidoTeste {
 		m1=mr.recuperar(11);
 		m2=mr.recuperar(22);
 		m3=mr.recuperar(33);
-		m3=mr.recuperar(33);
+		
 		
 	
 		p1=new Pedido();
