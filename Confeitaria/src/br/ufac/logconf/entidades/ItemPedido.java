@@ -23,14 +23,14 @@ public class ItemPedido {
 	@Column(nullable=false, length=10)
 	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime dataSaida;*/
-	@OneToOne(cascade=CascadeType.MERGE)
+	
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="material_fk")
 	private Material material;	
 
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "pedido_fk")
 	private Pedido pedido;
-	
 	
 	public int getId() {
 		return id;

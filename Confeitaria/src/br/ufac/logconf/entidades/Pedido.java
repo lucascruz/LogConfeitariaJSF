@@ -22,7 +22,8 @@ public class Pedido {
 	private int id;
 	@Column(nullable=false, length=50)
 	private String status;
-	@ManyToOne(cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy="pedido",cascade=CascadeType.ALL)
 	private List<ItemPedido> itemspedidos;
 	
 	

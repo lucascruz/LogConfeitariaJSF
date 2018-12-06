@@ -20,10 +20,12 @@ public class Material {
 	private String descricao;
 	@Column(nullable=false, length=10)
 	private String dataValidade;
+	
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="categoria_fk")
-	private Categoria categoria;	
-	@ManyToOne
+	private Categoria categoria;
+	
+	@OneToOne
 	@JoinColumn(name = "itempedido_fk")
 	private ItemPedido itempedido;
 	
