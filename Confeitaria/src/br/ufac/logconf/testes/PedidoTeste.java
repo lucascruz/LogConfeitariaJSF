@@ -22,6 +22,7 @@ public class PedidoTeste {
 		m1=mr.recuperar(11);
 		m2=mr.recuperar(22);
 		m3=mr.recuperar(33);
+		m3=mr.recuperar(33);
 		
 	
 		p1=new Pedido();
@@ -38,7 +39,7 @@ public class PedidoTeste {
 		
 		p2=new Pedido();
 		p2.setId(2);
-		p2.setStatus("Não enviado");
+		p2.setStatus("Nï¿½o enviado");
 		System.out.println("Adicionando items no pedido..");
 		p2.addMaterial(m1);
 		p2.addMaterial(m2);
