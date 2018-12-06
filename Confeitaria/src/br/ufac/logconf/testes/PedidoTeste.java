@@ -11,6 +11,7 @@ public class PedidoTeste {
 		
 		PedidoRepositorio pr = new PedidoRepositorio();
 		MaterialRepositorio mr = new MaterialRepositorio();
+		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
 		
 		Material m1, m2, m3;
 		Pedido p1, p2, p3;
@@ -33,36 +34,32 @@ public class PedidoTeste {
 		p1.addMaterial(m2);
 		p1.addMaterial(m3);
 		
-		pr.adicionar(p1);
-		m1.setPedido(p1);
-		
+		ipr.adicionar(p1);
 		
 		p2=new Pedido();
 		p2.setId(2);
-		p2.setStatus("N�o enviado");
+		p1.setStatus("Efetuado");
 		System.out.println("Adicionando items no pedido..");
 		p2.addMaterial(m1);
 		p2.addMaterial(m2);
-		p2.addMaterial(m2);
+		p2.addMaterial(m3);
 		
-		pr.adicionar(p2);
-		m2.setPedido(p2);
+		ipr.adicionar(p2);
 	
 		p3=new Pedido();
 		p3.setId(3);
-		p3.setStatus("Retornando");
+		p3.setStatus("Efetuado");
 		System.out.println("Adicionando items no pedido..");
 		p3.addMaterial(m1);
-		p3.addMaterial(m3);
+		p3.addMaterial(m2);
 		p3.addMaterial(m3);
 		
-		
-		pr.adicionar(p3);
-		m3.setPedido(p3);
+		ipr.adicionar(p3);
+
 		
 	
 		System.out.println("Listando Pedido, todos...");
-		pedidos = pr.recuperarTodos();
+		pedidos = ipr.recuperarTodos();
 		for (Pedido pedido : pedidos) {
 			System.out.println(pedido);
 		}

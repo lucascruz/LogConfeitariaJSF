@@ -18,17 +18,11 @@ public class Material {
 	private String nome;
 	@Column(nullable=false, length=100)
 	private String descricao;
-	@Column(nullable=false, length=3)
-	private int quantidade;
 	@Column(nullable=false, length=10)
-	private String dataEntrada;
-	@Column(nullable=false, length=10)
-	private String dataSaida;
-	
+	private String dataValidade;
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="categoria_fk")
 	private Categoria categoria;	
-
 	@ManyToOne
 	@JoinColumn(name = "pedido_fk")
 	private Pedido pedido;
@@ -52,25 +46,6 @@ public class Material {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public int getQuantidade() {
-		return quantidade;
-	}
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-	public String getDataEntrada() {
-		return dataEntrada;
-	}
-	public void setDataEntrada(String dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-	public String getDataSaida() {
-		return dataSaida;
-	}
-	public void setDataSaida(String dataSaida) {
-		this.dataSaida = dataSaida;
-		
-	}
 	public Pedido getPedido() {
 		return pedido;
 	}
@@ -85,8 +60,14 @@ public class Material {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	public String getDataValidade() {
+		return dataValidade;
+	}
+	public void setDataValidade(String dataValidade) {
+		this.dataValidade = dataValidade;
+	}
 	public String toString() {
-		return String.format("Material [id=%d, nome=\"%s\", descricao=\"%s\", quantidade=%d, dataEntrada=\"%s\", dataSaida=\"%s\", categoria=\"%s\"]", id, nome, descricao, quantidade, dataEntrada, dataSaida, categoria);
+		return String.format("Material [id=%d, nome=\"%s\", descricao=\"%s\", categoria=\"%s\", DataValidade=\"%s\"]", id, nome, descricao, categoria, dataValidade);
 	}
 
 	
