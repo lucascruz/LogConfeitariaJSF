@@ -1,5 +1,6 @@
 package br.ufac.logconf.testes;
 
+
 import java.util.List;
 
 import br.ufac.logconf.repositorios.*;
@@ -32,11 +33,27 @@ public class PedidoTeste {
 		p1=new Pedido();
 		p1.setId(1);
 		p1.setStatus("Efetuado");
+		p1.setDataEntrada();
 		System.out.println("Adicionando items no pedido..1");
 		p1.addItemPedido(ip1);
-		p1.addItemPedido(ip2);
-		p1.addItemPedido(ip3);
+
 		
+//		p2=new Pedido();
+//		p2.setId(2);
+//		p2.setStatus("Efetuado");
+//		System.out.println("Adicionando items no pedido..2");
+//		p2.addItemPedido(ip2);
+//		
+//		
+//		p3=new Pedido();
+//		p3.setId(3);
+//		p3.setStatus("Efetuado");
+//		System.out.println("Adicionando items no pedido..3");
+//		p3.addItemPedido(ip3);
+//
+//		pr.adicionar(p1);
+//		pr.adicionar(p2);
+//		pr.adicionar(p3);
 
 	
 		System.out.println("Listando Pedido, todos...");

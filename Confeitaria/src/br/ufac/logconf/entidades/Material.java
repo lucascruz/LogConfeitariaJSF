@@ -28,7 +28,7 @@ public class Material {
 	private Categoria categoria;
 
 	 @ManyToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "solicitacao_fk")
+	 @JoinColumn(name = "itempedido_fk")
 	 private ItemPedido itempedido;
 
 	public int getId() {

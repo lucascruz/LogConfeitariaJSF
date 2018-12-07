@@ -17,15 +17,6 @@ public class ItemPedido {
 	private int id;
 	@Column(nullable = false, length = 50)
 	private int quantidade;
-	/*
-	 * @Column(nullable=false, length=10)
-	 * 
-	 * @Temporal(TemporalType.TIMESTAMP) private LocalDateTime dataEntrada;
-	 * 
-	 * @Column(nullable=false, length=10)
-	 * 
-	 * @Temporal(TemporalType.TIMESTAMP) private LocalDateTime dataSaida;
-	 */
 
 	@ManyToOne
 	@JoinColumn(name = "material_fk")
@@ -68,7 +59,7 @@ public class ItemPedido {
 	}
 
 	public String toString() {
-		return String.format("Material [id=%d, quantidade=%d]", id, quantidade);
+		return String.format("Material [Nome=/%s/, quantidade=%d]", material.getNome(), quantidade);
 	}
 
 }
