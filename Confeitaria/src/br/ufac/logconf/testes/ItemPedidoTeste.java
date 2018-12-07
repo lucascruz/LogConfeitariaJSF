@@ -29,6 +29,8 @@ public class ItemPedidoTeste {
 		m3 = mr.recuperar(33);
 		System.out.println(m3.toString());
 
+		
+		
 		ip1.setId(1);
 		ip1.setMaterial(m1);
 		ip1.setQuantidade(10);
@@ -49,10 +51,6 @@ public class ItemPedidoTeste {
 		ipr.adicionar(ip2);
 		ipr.adicionar(ip3);
 		
-		
-		
-		
-
 		System.out.println("Listando itens...");
 		itempedidos = ipr.recuperarTodos();
 		for (ItemPedido itempedido : itempedidos) {

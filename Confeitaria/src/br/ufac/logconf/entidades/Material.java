@@ -1,7 +1,11 @@
 package br.ufac.logconf.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //import java.util.*;
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "materiais")
@@ -23,9 +27,9 @@ public class Material {
 	@JoinColumn(name = "categoria_fk")
 	private Categoria categoria;
 
-	@OneToOne
-	@JoinColumn(name = "itempedido_fk")
-	private ItemPedido itempedido;
+	 @ManyToOne(cascade = CascadeType.ALL)
+	 @JoinColumn(name = "solicitacao_fk")
+	 private ItemPedido itempedido;
 
 	public int getId() {
 		return id;

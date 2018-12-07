@@ -1,6 +1,7 @@
 package br.ufac.logconf.entidades;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ItemPedido {
 	 * @Temporal(TemporalType.TIMESTAMP) private LocalDateTime dataSaida;
 	 */
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "material_fk")
 	private Material material;
 

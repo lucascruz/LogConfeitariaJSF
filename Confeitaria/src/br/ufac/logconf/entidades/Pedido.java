@@ -1,7 +1,6 @@
 package br.ufac.logconf.entidades;
 
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.*;
@@ -40,7 +39,7 @@ public class Pedido {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Collection<ItemPedido> getMateriais() {
+	public List <ItemPedido> getMateriais() {
 		return itemspedidos;
 	}
 	public void setPedidos(List<ItemPedido> itempedido) {
