@@ -26,7 +26,7 @@ public class ItemPedido {
 	 * @Temporal(TemporalType.TIMESTAMP) private LocalDateTime dataSaida;
 	 */
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "material_fk")
 	private Material material;
 
@@ -63,7 +63,6 @@ public class ItemPedido {
 	}
 
 	public void setMaterial(Material material) {
-		// this.material = material;
 		this.material = material;
 	}
 

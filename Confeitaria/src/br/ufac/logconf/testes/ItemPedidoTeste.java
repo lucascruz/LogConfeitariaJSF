@@ -12,6 +12,7 @@ public class ItemPedidoTeste {
 
 		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
 		MaterialRepositorio mr = new MaterialRepositorio();
+		
 
 		ItemPedido ip1 = new ItemPedido();
 		ItemPedido ip2 = new ItemPedido();
@@ -20,7 +21,7 @@ public class ItemPedidoTeste {
 		Material m1, m2, m3;
 
 		List<ItemPedido> itempedidos;
-
+		
 		m1 = mr.recuperar(11);
 		System.out.println(m1.toString());
 		m2 = mr.recuperar(22);
@@ -45,17 +46,19 @@ public class ItemPedidoTeste {
 		System.out.println(ip3.toString());
 
 		ipr.adicionar(ip1);
+		ipr.adicionar(ip2);
+		ipr.adicionar(ip3);
+		
+		
+		
+		
 
-		System.out.println(ipr.toString());
-//	ipr.adicionar(ip2);
-//	ipr.adicionar(ip3);
-//	
-//	
-//	System.out.println("Listando itens...");
-//	itempedidos = ipr.recuperarTodos();
-//	for(ItemPedido itempedido : itempedidos) {
-//		System.out.println(itempedido);
-//	}
-
+		System.out.println("Listando itens...");
+		itempedidos = ipr.recuperarTodos();
+		for (ItemPedido itempedido : itempedidos) {
+			System.out.println(itempedido);
+		}
+		ipr.encerrar();
+		mr.encerrar();
 	}
 }
