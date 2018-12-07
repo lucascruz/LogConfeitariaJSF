@@ -48,11 +48,9 @@ public class Pedido {
 	}
 	
 	public void addItemPedido(ItemPedido ip) {
-		ip.setPedido(this);
 		itemspedidos.add(ip);
 	}
 	public void delMaterial(ItemPedido ip) {
-		ip.setPedido(null);
 		itemspedidos.remove(ip);
 	}
 	

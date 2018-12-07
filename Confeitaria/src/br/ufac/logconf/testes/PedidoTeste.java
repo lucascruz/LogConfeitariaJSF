@@ -21,8 +21,11 @@ public class PedidoTeste {
 		
 		
 		ip1=ipr.recuperar(1);
+		System.out.println(ip1.toString());
 		ip2=ipr.recuperar(2);
+		System.out.println(ip2.toString());
 		ip3=ipr.recuperar(3);
+		System.out.println(ip3.toString());
 		
 		
 	

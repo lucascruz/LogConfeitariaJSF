@@ -8,35 +8,32 @@ import br.ufac.logconf.entidades.*;
 public class CategoriaTeste {
 
 	public static void main(String[] args) {
-		
+
 		CategoriaRepositorio cr = new CategoriaRepositorio();
-		
-		
+
 		Categoria c1, c2;
 		List<Categoria> categorias;
-		
-		c1=new Categoria();
+
+		c1 = new Categoria();
 		c1.setId(1);
 		c1.setNome("laticineos");
 		c1.setDescricao("Tudo que vem da vaca");
-	
-		
-		c2=new Categoria();
+
+		c2 = new Categoria();
 		c2.setId(2);
 		c2.setNome("Massas");
 		c2.setDescricao("Tudo que vem do trigo");
-		
-		
+
 		System.out.println("Adicionando categorias...");
 		cr.adicionar(c1);
 		cr.adicionar(c2);
-		
+
 		System.out.println("Listando categorias..");
 		categorias = cr.recuperarTodos();
-		for(Categoria categoria : categorias) {
+		for (Categoria categoria : categorias) {
 			System.out.println(categoria);
 		}
-		
+
 //		System.out.println("Recuperando categorias, id = 444");
 //		a4=ar.recuperar(444);
 //		a4.setNome("LOA");

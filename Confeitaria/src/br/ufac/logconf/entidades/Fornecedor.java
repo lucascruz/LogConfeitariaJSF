@@ -1,4 +1,5 @@
 package br.ufac.logconf.entidades;
+
 //package br.ufac.logconf.entidades;
 //
 //import java.sql.*;
