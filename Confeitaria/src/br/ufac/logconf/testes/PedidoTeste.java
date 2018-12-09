@@ -1,6 +1,7 @@
 package br.ufac.logconf.testes;
 
 
+import java.util.Calendar;
 import java.util.List;
 
 import br.ufac.logconf.repositorios.*;
@@ -29,13 +30,17 @@ public class PedidoTeste {
 		System.out.println(ip3.toString());
 		
 		
-	
+		System.out.println("Adicionando items no pedido..1");
 		p1=new Pedido();
 		p1.setId(1);
-		p1.setStatus("Efetuado");
-		p1.setDataEntrada();
-		System.out.println("Adicionando items no pedido..1");
+		p1.setStatus("Solicitado");
+		p1.setDataEntrada(Calendar.getInstance());
+		p1.setDataSaida(Calendar.getInstance());
+		p1.setQuantidadePedir(10);
 		p1.addItemPedido(ip1);
+		System.out.println("Adicionados");
+		System.out.println(p1.getItemspedidos().size());
+
 
 		
 //		p2=new Pedido();
@@ -113,8 +118,8 @@ public class PedidoTeste {
 //		for(Categoria categoria : categorias) {
 //			System.out.println(categoria);
 //		}
-		pr.encerrar();
 		ipr.encerrar();
+		pr.encerrar();
 	}
 
 }

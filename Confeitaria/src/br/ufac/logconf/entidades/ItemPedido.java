@@ -59,7 +59,7 @@ public class ItemPedido {
 	}
 
 	public String toString() {
-		return String.format("Material [Nome=/%s/, quantidade=%d]", material.getNome(), quantidade);
+		return String.format("Material [Nome=%s, quantidade=%d]", material.getNome(), quantidade);
 	}
 
 }

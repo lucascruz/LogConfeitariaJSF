@@ -1,5 +1,7 @@
 package br.ufac.logconf.entidades;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,16 @@ public class Categoria {
 	private String nome;
 	@Column(nullable = false, length = 100)
 	private String descricao;
+	@ManyToOne (cascade=CascadeType.ALL)
+	private Fornecedor fornecedores;
+
+	public Fornecedor getFornecedores() {
+		return fornecedores;
+	}
+
+	public void setFornecedores(Fornecedor fornecedores) {
+		this.fornecedores = fornecedores;
+	}
 
 	public int getId() {
 		return id;

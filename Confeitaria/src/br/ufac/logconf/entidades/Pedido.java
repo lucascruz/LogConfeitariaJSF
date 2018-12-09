@@ -25,9 +25,22 @@ public class Pedido {
 	private Calendar dataEntrada;
 	@Column(nullable=false, length=10)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataSaida;
+	private Calendar dataSaida;
+	
+	public Funcionario getFuncionarios() {
+		return funcionarios;
+	}
+	public void setFuncionarios(Funcionario funcionarios) {
+		this.funcionarios = funcionarios;
+	}
 	@OneToMany(mappedBy="pedido",cascade=CascadeType.ALL)
 	private List<ItemPedido> itemspedidos;
+	
+	@Column(nullable=false, length=100)
+	private int quantidadePedir;
+	
+	@ManyToOne (cascade=CascadeType.ALL)
+	private Funcionario funcionarios;
 	
 	
 	public int getId() {
@@ -37,17 +50,36 @@ public class Pedido {
 		this.id = id;
 	}
 	
+	public int getQuantidadePedir() {
+		return quantidadePedir;
+	}
+	public void setQuantidadePedir(int quantidadePedir) {
+		this.quantidadePedir = quantidadePedir;
+	}
+	
+	@Temporal(TemporalType.DATE)
+	public Calendar getDataSaida() {
+		return dataSaida;
+	}
+	public void setDataSaida(Calendar dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+
+	public void setDataEntrada(Calendar dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
+	
+	@Temporal(TemporalType.DATE)
+	public Calendar getDataEntrada() {
+		return dataEntrada;
+	}
+	
+	
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	public List <ItemPedido> getMateriais() {
-		return itemspedidos;
-	}
-	public void setPedidos(List<ItemPedido> itempedido) {
-		this.itemspedidos = itempedido;
 	}
 	
 	public void addItemPedido(ItemPedido ip) {
@@ -57,20 +89,6 @@ public class Pedido {
 		itemspedidos.remove(ip);
 	}
 
-	@Temporal(TemporalType.DATE)
-	public Calendar getDataEntrada() {
-		return dataEntrada;
-	}
-	public void setDataEntrada() {
-		this.dataEntrada = Calendar.getInstance();
-	}
-	@Temporal(TemporalType.DATE)
-	public Date getDataSaida() {
-		return dataSaida;
-	}
-	public void setDataSaida(Date dataSaida) {
-		this.dataSaida = dataSaida;
-	}
 	public List<ItemPedido> getItemspedidos() {
 		return itemspedidos;
 	}
@@ -78,7 +96,7 @@ public class Pedido {
 		this.itemspedidos = itemspedidos;
 	}
 	public String toString() {
-		return String.format("Categoria [id=%d, status=\"%s\", materiais=%d]", id, status, itemspedidos.size());
+		return String.format("Categoria [id=%d, status=\"%s\", numero total de itens=%d, quantidade de materiais a pedir=%d]", id, status, itemspedidos.size(), quantidadePedir);
 	}
 	
 }
