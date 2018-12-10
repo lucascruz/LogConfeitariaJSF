@@ -64,13 +64,13 @@ public class ItemPedido {
 	}
 
 
-
+	@Transient
 	public Pedido getPedido() {
 		return this.pedido;
 	}
 
 
-
+	@Transient
 	public void setPedido(Pedido pedido) {
 		this.pedido= pedido;
 	}

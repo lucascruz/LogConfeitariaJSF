@@ -22,7 +22,7 @@ public class Pedido {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataSaida;
 
-	@OneToMany(mappedBy = "pedido", orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "pedido", orphanRemoval = true)
 	private List <ItemPedido> itemspedidos = new ArrayList<ItemPedido>();
 
 	@Column(nullable = false, length = 100)
@@ -31,7 +31,7 @@ public class Pedido {
 	@ManyToOne
 	private Funcionario funcionarios_Pedido;
 
-	@OneToMany(mappedBy = "pedidos", orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "pedidos", orphanRemoval = true)
 	private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 	
 	
@@ -143,10 +143,11 @@ public class Pedido {
 				"Categoria [id=%d, status=\"%s\", numero total de itens=%d, quantidade de materiais a pedir=%d]", id,
 				status, itemspedidos.size(), quantidadePedir);
 	}
-
+	@Transient
 	public void addItemPedido(ItemPedido ip1) {
 		itemspedidos.add(ip1);
 	}
+	@Transient
 	public void dellItemPedido(ItemPedido ip2) {
 		itemspedidos.remove(ip2);
 	}
