@@ -32,19 +32,19 @@ public class ItemPedidoTeste {
 		ip1.setMaterial(m1);
 		ip1.setQuantidade(10);
 		p1.addItemPedido(ip1);
-		ip1.setPedido(p1);
+
 
 		ip2.setId(2);
 		ip2.setMaterial(m2);
 		ip2.setQuantidade(5);
 		p1.addItemPedido(ip2);
-		ip1.setPedido(p1);
+
 
 		ip3.setId(3);
 		ip3.setMaterial(m3);
 		ip3.setQuantidade(10);
 		p1.addItemPedido(ip2);
-		ip1.setPedido(p1);
+
 
 		System.out.println(ip1.toString());
 		System.out.println(ip2.toString());
@@ -53,6 +53,10 @@ public class ItemPedidoTeste {
 		ipr.adicionar(ip1);
 		ipr.adicionar(ip2);
 		ipr.adicionar(ip3);
+		
+		ip1.setPedido(p1);
+		ip2.setPedido(p1);
+		ip3.setPedido(p1);
 
 		System.out.println("Listando itens...");
 		itempedidos = ipr.recuperarTodos();

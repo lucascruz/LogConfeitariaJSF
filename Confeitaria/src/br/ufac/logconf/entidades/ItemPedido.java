@@ -20,7 +20,7 @@ public class ItemPedido {
 	@OneToMany(mappedBy = "itempedidos", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Material> material = new ArrayList<Material>();
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "pedido_fk")
 	private Pedido pedido;
 	

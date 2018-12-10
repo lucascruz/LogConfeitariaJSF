@@ -10,8 +10,14 @@ public class FornecedorTeste {
     public static void main(String[] args) {
 
         FornecedorRepositorio or = new FornecedorRepositorio();
+        FuncionarioRepositorio fr = new FuncionarioRepositorio();
 
         Fornecedor o1, o2;
+        Funcionario f1;
+        
+        
+        
+        f1 = fr.recuperar(1);
         
         List<Fornecedor> fornecedores;
         
@@ -22,6 +28,7 @@ public class FornecedorTeste {
         o1.setEndereco("Minha rua");
         o1.setTelefone("456");
         o1.setEmail("laila@hot");
+        o1.setFuncionarios(f1);
         
         o2 = new Fornecedor();
         o2.setId(2);
@@ -30,6 +37,7 @@ public class FornecedorTeste {
         o2.setEndereco("Rua dele");
         o2.setTelefone("0123");
         o2.setEmail("lucas@hot");
+        o1.setFuncionarios(f1);
        
 
 

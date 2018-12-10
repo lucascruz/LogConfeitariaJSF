@@ -29,6 +29,7 @@ public class Pedido {
 	private int quantidadePedir;
 
 	@ManyToOne
+	@JoinColumn(name="funcionario_pk")
 	private Funcionario funcionarios_Pedido;
 
 	@OneToMany(mappedBy = "pedidos", orphanRemoval = true)

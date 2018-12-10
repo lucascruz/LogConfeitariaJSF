@@ -13,13 +13,15 @@ public class PedidoTeste {
 		
 		PedidoRepositorio pr = new PedidoRepositorio();
 		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
+		FuncionarioRepositorio fr = new FuncionarioRepositorio();
 		
 		ItemPedido ip1, ip2, ip3;
+		Funcionario f1;
 		Pedido p1, p2, p3;
 		
 		List<Pedido> pedidos;
 		
-		
+		f1 = fr.recuperar(1);
 		
 		ip1=ipr.recuperar(1);
 		ip2=ipr.recuperar(2);
@@ -34,6 +36,7 @@ public class PedidoTeste {
 		p1.setDataSaida(Calendar.getInstance());
 		p1.setQuantidadePedir(10);
 		p1.addItemPedido(ip1);
+		p1.setFuncionarios_Pedido(f1);
 		System.out.println("Adicionados");
 		System.out.println(p1.getItemspedidos().size());
 
@@ -46,6 +49,7 @@ public class PedidoTeste {
 		p2.setDataSaida(Calendar.getInstance());
 		p2.setQuantidadePedir(10);
 		p2.addItemPedido(ip2);
+		p1.setFuncionarios_Pedido(f1);
 		System.out.println("Adicionados");
 		System.out.println(p2.getItemspedidos().size());
 		
@@ -57,6 +61,7 @@ public class PedidoTeste {
 		p3.setDataSaida(Calendar.getInstance());
 		p3.setQuantidadePedir(10);
 		p3.addItemPedido(ip3);
+		p1.setFuncionarios_Pedido(f1);
 		System.out.println("Adicionados");
 		System.out.println(p3.getItemspedidos().size());
 

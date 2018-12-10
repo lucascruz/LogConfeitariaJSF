@@ -23,7 +23,7 @@ public class FuncionarioTeste {
         f1.setIdade(54);
         f1.setSexo("1");
         f1.setTelefone("dff");
-    
+
 
         f2 = new Funcionario();
         f2.setId(2);
