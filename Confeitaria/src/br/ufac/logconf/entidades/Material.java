@@ -2,7 +2,7 @@ package br.ufac.logconf.entidades;
 
 import javax.persistence.*;
 
-
+@Entity
 @Table(name = "materiais")
 @NamedQueries({ @NamedQuery(name = "Material.todos", query = "SELECT m FROM Material m"),
 		@NamedQuery(name = "Material.todosPorNome", query = "SELECT m FROM Material m ORDER BY m.nome"),

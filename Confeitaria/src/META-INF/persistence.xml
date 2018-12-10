@@ -6,6 +6,7 @@
 	<persistence-unit name="AcademicoJPA"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.ufac.logconf.entidades</class>
 		<properties>
 			<property name="hibernate.connection.driver_class"
 				value="com.mysql.jdbc.Driver" />

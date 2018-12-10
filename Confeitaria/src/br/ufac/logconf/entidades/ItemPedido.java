@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "itempedido")
 @NamedQueries({ @NamedQuery(name = "ItemPedido.todos", query = "SELECT i FROM ItemPedido i"),
 		@NamedQuery(name = "ItemPedido.todosPorID", query = "SELECT i FROM ItemPedido i WHERE i.id LIKE :id ORDER BY i.id") })
@@ -16,7 +17,7 @@ public class ItemPedido {
 	@Column(nullable = false, length = 50)
 	private int quantidade;
 
-	@OneToMany(mappedBy = "itemspedidos", orphanRemoval = true)
+	@OneToMany(mappedBy = "itempedidos", orphanRemoval = true)
 	private List<Material> material = new ArrayList<Material>();
 
 	@ManyToOne(cascade=CascadeType.ALL)

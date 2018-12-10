@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.Cascade;
 
-
+@Entity
 @Table(name="funcionarios")
 @NamedQueries({
 @NamedQuery(name="Funcionario.todos", query="SELECT u FROM Funcionario u"),

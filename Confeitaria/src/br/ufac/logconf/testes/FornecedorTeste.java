@@ -30,8 +30,7 @@ public class FornecedorTeste {
         o2.setEndereco("Rua dele");
         o2.setTelefone("0123");
         o2.setEmail("lucas@hot");
-
-        
+       
 
 
         System.out.println("Adicionando fornecedor...");

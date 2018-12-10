@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.Cascade;
 
-
+@Entity
 @Table(name = "pedidos")
 @NamedQueries({ @NamedQuery(name = "Pedido.todos", query = "SELECT p FROM Pedido p"),
 		@NamedQuery(name = "Pedido.todosPorID", query = "SELECT p FROM Pedido p WHERE p.id LIKE :id ORDER BY p.id") })
