@@ -3,12 +3,14 @@ package br.ufac.logconf.repositorios;
 import java.util.List;
 
 import javax.persistence.*;
+
 import br.ufac.logconf.entidades.*;
 
 public class CategoriaRepositorio {
 
 	private EntityManagerFactory emf;
 	private EntityManager em;
+
 
 	public CategoriaRepositorio() {
 		emf = Persistence.createEntityManagerFactory("AcademicoJPA");

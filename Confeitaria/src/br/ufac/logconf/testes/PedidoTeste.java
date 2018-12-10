@@ -12,7 +12,6 @@ public class PedidoTeste {
 	public static void main(String[] args) {
 		
 		PedidoRepositorio pr = new PedidoRepositorio();
-	//	MaterialRepositorio mr = new MaterialRepositorio();
 		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
 		
 		ItemPedido ip1, ip2, ip3;
@@ -23,11 +22,8 @@ public class PedidoTeste {
 		
 		
 		ip1=ipr.recuperar(1);
-		System.out.println(ip1.toString());
 		ip2=ipr.recuperar(2);
-		System.out.println(ip2.toString());
 		ip3=ipr.recuperar(3);
-		System.out.println(ip3.toString());
 		
 		
 		System.out.println("Adicionando items no pedido..1");

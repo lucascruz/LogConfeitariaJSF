@@ -26,10 +26,10 @@ public class Fornecedor {
 	private String email;
 	@OneToMany(mappedBy = "fornecedor", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Categoria> categorias = new ArrayList<Categoria>();
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "funcionario_fk")
 	private Funcionario funcionarios;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "pedidos_fk")
 	private Pedido pedidos;
 	

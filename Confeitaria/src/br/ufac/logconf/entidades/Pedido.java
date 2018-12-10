@@ -28,7 +28,7 @@ public class Pedido {
 	@Column(nullable = false, length = 100)
 	private int quantidadePedir;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Funcionario funcionarios_Pedido;
 
 	@OneToMany(mappedBy = "pedidos", orphanRemoval = true, fetch = FetchType.LAZY)
@@ -144,10 +144,11 @@ public class Pedido {
 				status, itemspedidos.size(), quantidadePedir);
 	}
 
-
-
 	public void addItemPedido(ItemPedido ip1) {
 		itemspedidos.add(ip1);
+	}
+	public void dellItemPedido(ItemPedido ip2) {
+		itemspedidos.remove(ip2);
 	}
 
 }

@@ -18,11 +18,11 @@ public class Material {
 	@Column(nullable = false, length = 10)
 	private String dataValidade;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "categoria_fk")
 	private Categoria categoria;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "itempedido_fk")
 	private ItemPedido itempedidos;
 	

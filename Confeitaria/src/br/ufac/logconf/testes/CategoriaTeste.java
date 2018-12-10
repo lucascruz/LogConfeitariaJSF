@@ -9,8 +9,9 @@ public class CategoriaTeste {
 
 	public static void main(String[] args) {
 
-		CategoriaRepositorio cr = new CategoriaRepositorio();
 		FornecedorRepositorio fr = new FornecedorRepositorio();
+		CategoriaRepositorio cr = new CategoriaRepositorio();
+
 
 		Categoria c1, c2;
 		Fornecedor f1, f2;

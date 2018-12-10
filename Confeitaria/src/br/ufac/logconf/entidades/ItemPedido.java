@@ -20,10 +20,10 @@ public class ItemPedido {
 	@OneToMany(mappedBy = "itempedidos", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Material> material = new ArrayList<Material>();
 
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "pedido_fk", nullable=false)
+	@ManyToOne
+	@JoinColumn(name = "pedido_fk")
 	private Pedido pedido;
-
+	
 	public ItemPedido() {
 
 	}
@@ -72,7 +72,7 @@ public class ItemPedido {
 
 
 	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
+		this.pedido= pedido;
 	}
 
 
@@ -80,5 +80,6 @@ public class ItemPedido {
 	public String toString() {
 		return String.format("Material [Nome=%s, quantidade=%d]", material.toString(), quantidade);
 	}
+
 
 }

@@ -4,30 +4,32 @@ import java.util.List;
 
 import br.ufac.logconf.entidades.ItemPedido;
 import br.ufac.logconf.entidades.Material;
+
 import br.ufac.logconf.repositorios.ItemPedidoRepositorio;
 import br.ufac.logconf.repositorios.MaterialRepositorio;
+
 
 public class ItemPedidoTeste {
 	public static void main(String[] args) {
 
 		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
 		MaterialRepositorio mr = new MaterialRepositorio();
+
 		
 
 		ItemPedido ip1 = new ItemPedido();
 		ItemPedido ip2 = new ItemPedido();
 		ItemPedido ip3 = new ItemPedido();
-
+		
+		//Pedido p1 = pr.recuperar(1);
+		
 		Material m1, m2, m3;
 
 		List<ItemPedido> itempedidos;
 		
 		m1 = mr.recuperar(11);
-		System.out.println(m1.toString());
 		m2 = mr.recuperar(22);
-		System.out.println(m2.toString());
 		m3 = mr.recuperar(33);
-		System.out.println(m3.toString());
 
 		
 		
@@ -35,9 +37,11 @@ public class ItemPedidoTeste {
 		ip1.setMaterial(m1);
 		ip1.setQuantidade(10);
 
+
 		ip2.setId(2);
 		ip2.setMaterial(m2);
 		ip2.setQuantidade(5);
+
 
 		ip3.setId(3);
 		ip3.setMaterial(m3);

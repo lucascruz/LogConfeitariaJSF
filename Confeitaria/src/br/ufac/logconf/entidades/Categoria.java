@@ -20,7 +20,7 @@ public class Categoria {
 	@Column(nullable = false, length = 100)
 	private String descricao;
 	
-	@ManyToOne (cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="fornecedor_pk", nullable=false)
 	private Fornecedor fornecedor;
 	@OneToMany(mappedBy="categoria", orphanRemoval=true, fetch = FetchType.LAZY)
