@@ -1,6 +1,7 @@
 package br.ufac.logconf.entidades;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ public class ItemPedido {
 	private int quantidade;
 
 	@OneToMany(mappedBy = "itemspedidos", orphanRemoval = true)
-	private List<Material> material;
+	private List<Material> material = new ArrayList<Material>();
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "pedido_fk", nullable=false)

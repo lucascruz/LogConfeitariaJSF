@@ -26,7 +26,7 @@ public class Pedido {
 
 	@OneToMany(mappedBy = "pedido", orphanRemoval = true)
 	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
-	private List <ItemPedido> itemspedidos;
+	private List <ItemPedido> itemspedidos = new ArrayList<ItemPedido>();
 
 	@Column(nullable = false, length = 100)
 	private int quantidadePedir;

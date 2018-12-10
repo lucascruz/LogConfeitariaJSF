@@ -1,6 +1,7 @@
 package br.ufac.logconf.entidades;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -33,7 +34,7 @@ public class Funcionario {
     
     @OneToMany(mappedBy="funcionarios", orphanRemoval=true)
 	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
-    private List<Fornecedor> fornecedores;
+    private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
     
     @OneToMany(mappedBy="funcionarios_Pedido", orphanRemoval=true)
 	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})

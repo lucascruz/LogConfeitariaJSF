@@ -1,5 +1,6 @@
 package br.ufac.logconf.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -27,7 +28,7 @@ public class Categoria {
 	
 	@OneToMany(mappedBy="categoria", orphanRemoval=true)
 	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
-	private List <Material> materiais;
+	private List <Material> materiais = new ArrayList<Material>();
 	
 	public Categoria() {
 		super();
