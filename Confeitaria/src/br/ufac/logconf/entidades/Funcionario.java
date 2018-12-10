@@ -1,9 +1,13 @@
 package br.ufac.logconf.entidades;
 
 
+import java.util.List;
+
 import javax.persistence.*;
 
-@Entity
+import org.hibernate.annotations.Cascade;
+
+
 @Table(name="funcionarios")
 @NamedQueries({
 @NamedQuery(name="Funcionario.todos", query="SELECT u FROM Funcionario u"),
@@ -27,14 +31,19 @@ public class Funcionario {
     @Column(nullable=false, length=50)
     private String endereco;
     
-    @OneToMany(mappedBy="fornecedores")
-    private Fornecedor fornecedores;
+    @OneToMany(mappedBy="funcionarios", orphanRemoval=true)
+	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
+    private List<Fornecedor> fornecedores;
     
-    @OneToMany(mappedBy="funcionarios")
-    private Pedido pedidos;
+    @OneToMany(mappedBy="funcionarios_Pedido", orphanRemoval=true)
+	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
+    private List<Pedido> pedidos;
     
    
-    public Funcionario() {}
+    public Funcionario() {
+    	super();
+    }
+    
 
 
     public int getId() {
@@ -80,25 +89,30 @@ public class Funcionario {
         this.endereco = endereco;
     }
  
-     
-    public Fornecedor getFornecedores() {
+
+
+	public List<Fornecedor> getFornecedores() {
 		return fornecedores;
 	}
 
 
-	public void setFornecedores(Fornecedor fornecedores) {
+
+	public void setFornecedores(List<Fornecedor> fornecedores) {
 		this.fornecedores = fornecedores;
 	}
 
 
-	public Pedido getPedidos() {
+
+	public List<Pedido> getPedidos() {
 		return pedidos;
 	}
 
 
-	public void setPedidos(Pedido pedidos) {
+
+	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+
 
 
 	public String toString() {

@@ -1,13 +1,8 @@
 package br.ufac.logconf.entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
-//import java.util.*;
 import javax.persistence.*;
 
 
-@Entity
 @Table(name = "materiais")
 @NamedQueries({ @NamedQuery(name = "Material.todos", query = "SELECT m FROM Material m"),
 		@NamedQuery(name = "Material.todosPorNome", query = "SELECT m FROM Material m ORDER BY m.nome"),
@@ -23,13 +18,21 @@ public class Material {
 	@Column(nullable = false, length = 10)
 	private String dataValidade;
 
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "categoria_fk")
 	private Categoria categoria;
 
-	 @ManyToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "itempedido_fk")
-	 private ItemPedido itempedido;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "itempedido_fk")
+	private ItemPedido itempedidos;
+
+	
+	
+	
+	public Material() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getId() {
 		return id;
@@ -56,11 +59,11 @@ public class Material {
 	}
 
 	public ItemPedido getPedido() {
-		return itempedido;
+		return itempedidos;
 	}
 
 	public void setItemPedido(ItemPedido itempedido) {
-		this.itempedido = itempedido;
+		this.itempedidos = itempedido;
 	}
 
 	public Categoria getCategoria() {
@@ -79,6 +82,15 @@ public class Material {
 		this.dataValidade = dataValidade;
 	}
 
+	public ItemPedido getItempedidos() {
+		return itempedidos;
+	}
+
+	public void setItempedidos(ItemPedido itempedidos) {
+		this.itempedidos = itempedidos;
+	}
+
+	@Override
 	public String toString() {
 		return String.format("Material [id=%d, nome=\"%s\", descricao=\"%s\", categoria=\"%s\", DataValidade=\"%s\"]",
 				id, nome, descricao, categoria, dataValidade);

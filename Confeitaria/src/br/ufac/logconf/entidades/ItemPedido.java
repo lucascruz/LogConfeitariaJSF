@@ -1,13 +1,10 @@
 package br.ufac.logconf.entidades;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.List;
 
 import javax.persistence.*;
 
-@Entity
 @Table(name = "itempedido")
 @NamedQueries({ @NamedQuery(name = "ItemPedido.todos", query = "SELECT i FROM ItemPedido i"),
 		@NamedQuery(name = "ItemPedido.todosPorID", query = "SELECT i FROM ItemPedido i WHERE i.id LIKE :id ORDER BY i.id") })
@@ -18,13 +15,17 @@ public class ItemPedido {
 	@Column(nullable = false, length = 50)
 	private int quantidade;
 
-	@ManyToOne
-	@JoinColumn(name = "material_fk")
-	private Material material;
+	@OneToMany(mappedBy = "itemspedidos", orphanRemoval = true)
+	private List<Material> material;
 
-	@ManyToOne
-	@JoinColumn(name = "pedido_fk")
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "pedido_fk", nullable=false)
 	private Pedido pedido;
+
+	public ItemPedido() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getId() {
 		return id;
@@ -50,16 +51,20 @@ public class ItemPedido {
 		this.pedido = pedido;
 	}
 
-	public Material getMaterial() {
+	public List<Material> getMaterial() {
 		return material;
 	}
 
-	public void setMaterial(Material material) {
+	public void setMaterial(Material m) {
+		material.add(m);
+	}
+
+	public void setMaterial(List<Material> material) {
 		this.material = material;
 	}
 
 	public String toString() {
-		return String.format("Material [Nome=%s, quantidade=%d]", material.getNome(), quantidade);
+		return String.format("Material [Nome=%s, quantidade=%d]", material.toString(), quantidade);
 	}
 
 }

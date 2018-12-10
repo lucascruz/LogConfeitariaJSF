@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+
+
 @Entity
 @Table(name = "categorias")
 @NamedQueries({ @NamedQuery(name = "Categoria.todos", query = "SELECT c FROM Categoria c"),
@@ -17,15 +20,26 @@ public class Categoria {
 	private String nome;
 	@Column(nullable = false, length = 100)
 	private String descricao;
+	
 	@ManyToOne (cascade=CascadeType.ALL)
-	private Fornecedor fornecedores;
+	@JoinColumn(name="fornecedor_pk", nullable=false)
+	private Fornecedor fornecedor;
+	
+	@OneToMany(mappedBy="categoria", orphanRemoval=true)
+	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
+	private List <Material> materiais;
+	
+	public Categoria() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Fornecedor getFornecedores() {
-		return fornecedores;
+		return fornecedor;
 	}
 
 	public void setFornecedores(Fornecedor fornecedores) {
-		this.fornecedores = fornecedores;
+		this.fornecedor = fornecedores;
 	}
 
 	public int getId() {
@@ -50,6 +64,22 @@ public class Categoria {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	public List<Material> getMateriais() {
+		return materiais;
+	}
+
+	public void setMateriais(List<Material> materiais) {
+		this.materiais = materiais;
 	}
 
 	public String toString() {

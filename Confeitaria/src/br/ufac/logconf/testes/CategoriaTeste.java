@@ -1,6 +1,5 @@
 package br.ufac.logconf.testes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.ufac.logconf.repositorios.*;
