@@ -25,70 +25,72 @@ public class Material {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "itempedido_fk")
 	private ItemPedido itempedidos;
-
-	
 	
 	
 	public Material() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 
 	public String getDescricao() {
 		return descricao;
 	}
 
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-	public ItemPedido getPedido() {
-		return itempedidos;
-	}
-
-	public void setItemPedido(ItemPedido itempedido) {
-		this.itempedidos = itempedido;
-	}
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
 
 	public String getDataValidade() {
 		return dataValidade;
 	}
 
+
 	public void setDataValidade(String dataValidade) {
 		this.dataValidade = dataValidade;
 	}
+
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 
 	public ItemPedido getItempedidos() {
 		return itempedidos;
 	}
 
+
 	public void setItempedidos(ItemPedido itempedidos) {
 		this.itempedidos = itempedidos;
 	}
+
 
 	@Override
 	public String toString() {

@@ -14,6 +14,7 @@ public class CategoriaTeste {
 
 		Categoria c1, c2;
 		Fornecedor f1, f2;
+		
 		f1 = fr.recuperar(1);
 		f2 = fr.recuperar(2);
 
@@ -24,14 +25,13 @@ public class CategoriaTeste {
 		c1.setId(1);
 		c1.setNome("laticineos");
 		c1.setDescricao("Tudo que vem da vaca");
-		c1.setFornecedores(f1);
+		c1.setFornecedor(f1);
 		
-
 		c2 = new Categoria();
 		c2.setId(2);
 		c2.setNome("Massas");
 		c2.setDescricao("Tudo que vem do trigo");
-		c2.setFornecedores(f2);
+		c2.setFornecedor(f2);
 
 		System.out.println("Adicionando categorias...");
 		cr.adicionar(c1);

@@ -16,11 +16,9 @@ public class CategoriaRepositorio {
 	}
 
 	public void adicionar(Categoria categoria) {
-
 		em.getTransaction().begin();
 		em.persist(categoria);
 		em.getTransaction().commit();
-
 	}
 
 	public Categoria recuperar(int id) {

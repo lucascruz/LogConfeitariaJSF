@@ -4,8 +4,6 @@ import java.util.*;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Cascade;
-
 @Entity
 @Table(name = "pedidos")
 @NamedQueries({ @NamedQuery(name = "Pedido.todos", query = "SELECT p FROM Pedido p"),
@@ -24,8 +22,7 @@ public class Pedido {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataSaida;
 
-	@OneToMany(mappedBy = "pedido", orphanRemoval = true)
-	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
+	@OneToMany(mappedBy = "pedido", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List <ItemPedido> itemspedidos = new ArrayList<ItemPedido>();
 
 	@Column(nullable = false, length = 100)
@@ -34,97 +31,123 @@ public class Pedido {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Funcionario funcionarios_Pedido;
 
-	@OneToMany(mappedBy = "pedidos", orphanRemoval = true)
-	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
+	@OneToMany(mappedBy = "pedidos", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 	
 	
 	
 	public Pedido() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
+
+
 
 	public int getId() {
 		return id;
 	}
 
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public int getQuantidadePedir() {
-		return quantidadePedir;
-	}
 
-	public void setQuantidadePedir(int quantidadePedir) {
-		this.quantidadePedir = quantidadePedir;
-	}
-
-	@Temporal(TemporalType.DATE)
-	public Calendar getDataSaida() {
-		return dataSaida;
-	}
-
-	public void setDataSaida(Calendar dataSaida) {
-		this.dataSaida = dataSaida;
-	}
-
-	public void setDataEntrada(Calendar dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-
-	@Temporal(TemporalType.DATE)
-	public Calendar getDataEntrada() {
-		return dataEntrada;
-	}
-
-	public Funcionario getFuncionarios() {
-		return funcionarios_Pedido;
-	}
-
-	public void setFuncionarios(Funcionario funcionarios) {
-		this.funcionarios_Pedido = funcionarios;
-	}
 
 	public String getStatus() {
 		return status;
 	}
 
+
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public void addItemPedido(ItemPedido ip) {
-		itemspedidos.add(ip);
+
+
+	public Calendar getDataEntrada() {
+		return dataEntrada;
 	}
 
-	public void delMaterial(ItemPedido ip) {
-		itemspedidos.remove(ip);
+
+	@Temporal(TemporalType.DATE)
+	public void setDataEntrada(Calendar dataEntrada) {
+		this.dataEntrada = dataEntrada;
 	}
+
+
+
+	public Calendar getDataSaida() {
+		return dataSaida;
+	}
+
+
+	@Temporal(TemporalType.DATE)
+	public void setDataSaida(Calendar dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+
+
 
 	public List<ItemPedido> getItemspedidos() {
 		return itemspedidos;
 	}
 
+
+
 	public void setItemspedidos(List<ItemPedido> itemspedidos) {
 		this.itemspedidos = itemspedidos;
 	}
 
-	
-	
+
+
+	public int getQuantidadePedir() {
+		return quantidadePedir;
+	}
+
+
+
+	public void setQuantidadePedir(int quantidadePedir) {
+		this.quantidadePedir = quantidadePedir;
+	}
+
+
+
+	public Funcionario getFuncionarios_Pedido() {
+		return funcionarios_Pedido;
+	}
+
+
+
+	public void setFuncionarios_Pedido(Funcionario funcionarios_Pedido) {
+		this.funcionarios_Pedido = funcionarios_Pedido;
+	}
+
+
+
 	public List<Fornecedor> getFornecedores() {
 		return fornecedores;
 	}
+
+
 
 	public void setFornecedores(List<Fornecedor> fornecedores) {
 		this.fornecedores = fornecedores;
 	}
 
+
+
 	public String toString() {
 		return String.format(
 				"Categoria [id=%d, status=\"%s\", numero total de itens=%d, quantidade de materiais a pedir=%d]", id,
 				status, itemspedidos.size(), quantidadePedir);
+	}
+
+
+
+	public void addItemPedido(ItemPedido ip1) {
+		itemspedidos.add(ip1);
 	}
 
 }

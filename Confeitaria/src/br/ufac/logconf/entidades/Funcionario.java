@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Cascade;
-
 @Entity
 @Table(name="funcionarios")
 @NamedQueries({
@@ -32,13 +30,11 @@ public class Funcionario {
     @Column(nullable=false, length=50)
     private String endereco;
     
-    @OneToMany(mappedBy="funcionarios", orphanRemoval=true)
-	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
+    @OneToMany(mappedBy="funcionarios", orphanRemoval=true, fetch = FetchType.LAZY)
     private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
     
-    @OneToMany(mappedBy="funcionarios_Pedido", orphanRemoval=true)
-	@Cascade(value= {org.hibernate.annotations.CascadeType.ALL})
-    private List<Pedido> pedidos;
+    @OneToMany(mappedBy="funcionarios_Pedido", orphanRemoval=true, fetch = FetchType.LAZY)
+    private List<Pedido> pedidos = new ArrayList<Pedido>();
     
    
     public Funcionario() {

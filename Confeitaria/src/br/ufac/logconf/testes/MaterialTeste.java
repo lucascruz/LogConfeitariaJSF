@@ -11,15 +11,19 @@ public class MaterialTeste {
 		
 		CategoriaRepositorio cr = new CategoriaRepositorio();
 		MaterialRepositorio mr = new MaterialRepositorio();
-		
-		
+				
 		Material m1, m2, m3;
 		Categoria c1, c2;
+		
+		List<Material> materiais;
+		
+		
+		
 		
 		c1 = cr.recuperar(1);
 		c2 = cr.recuperar(2);
 		
-		List<Material> materiais;
+
 		
 		m1 = new Material();
 		m1.setId(11);

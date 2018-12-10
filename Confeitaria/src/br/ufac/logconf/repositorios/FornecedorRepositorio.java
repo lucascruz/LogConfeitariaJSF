@@ -16,12 +16,10 @@ public class FornecedorRepositorio {
             em = emf.createEntityManager();
         }
         
-        public void adicionar(Fornecedor fornecedor) {
-            
+        public void adicionar(Fornecedor fornecedor) { 
             em.getTransaction().begin();
             em.persist(fornecedor);
-            em.getTransaction().commit();
-            
+            em.getTransaction().commit();         
         }
         
         public Fornecedor recuperar(int id) {
@@ -41,11 +39,6 @@ public class FornecedorRepositorio {
         @SuppressWarnings("unchecked")
         public List<Fornecedor> recuperarTodos(){
             return em.createNamedQuery("Fornecedor.todos").getResultList();
-            
-        }
-        @SuppressWarnings("unchecked")
-        public List<Fornecedor> recuperarTodosPorNome(){
-            return em.createNamedQuery("Fornecedor.todosPorNome").getResultList();
             
         }
         
