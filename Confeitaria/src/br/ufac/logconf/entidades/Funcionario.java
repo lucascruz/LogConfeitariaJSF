@@ -112,6 +112,7 @@ public class Funcionario {
 
 
 
+	@Override
 	public String toString() {
         return String.format("Funcionario [id=%d, nome=\"%s\", cpf=\"%s\", telefone=\"%s\", sexo=\"%s\",idade=%d,endereco=\"%s\"]", id, nome, cpf, telefone, sexo, idade, endereco);
     }

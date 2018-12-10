@@ -22,6 +22,10 @@ public class FornecedorTeste {
         c1 = cr.recuperar(1);
         c2 = cr.recuperar(2);
         
+        o1 = or.recuperar(1);
+        
+        
+        
         List<Categoria> categorias = new ArrayList<Categoria>();
         categorias.add(c1);
         categorias.add(c2);
@@ -50,13 +54,13 @@ public class FornecedorTeste {
         o2.setTelefone("0123");
         o2.setEmail("lucas@hot");
         o2.setFuncionarios(f1);
-        o1.setCategorias(categorias);
+        o2.setCategorias(categorias);
        
 
 
         System.out.println("Adicionando fornecedor...");
         or.adicionar(o1);
-        or.adicionar(o2);
+        //or.adicionar(o2);
        
 
 
@@ -65,6 +69,42 @@ public class FornecedorTeste {
         for(Fornecedor fornecedor : fornecedores) {
             System.out.println(fornecedor);
         }
+        
+  
+
+		System.out.println("Recuperando fornecedores, id = 2");
+		o2=or.recuperar(2);
+		o2.setId(2);
+        o2.setNome("Atacadão");
+        o2.setCnpj("7909"); 
+        o2.setEndereco("Rua dele");
+        o2.setTelefone("0123");
+        o2.setEmail("lucas@hot");
+        o2.setFuncionarios(f1);
+//        o2.setCategorias(categorias);
+		
+		System.out.println("Atualizando fornecedor, id = 1");
+		or.atualizar(o2);
+		
+		
+		System.out.println("Listando fornecedores, todos...");
+		fornecedores = or.recuperarTodos();
+		for(Fornecedor fornecedor : fornecedores) {
+			System.out.println(fornecedor);
+		}
+		
+		System.out.println("Removendo fornecedores..");
+		fornecedores = or.recuperarTodos();
+		//or.remover(o1);
+//		for(Categoria categoria : categorias) {
+//			ar.remover(categoria);
+//		}
+		System.out.println("Listando categorias...");
+		fornecedores = or.recuperarTodos();
+		for(Fornecedor fornecedor : fornecedores) {
+			System.out.println(fornecedor);
+		}
+        
         
         fr.encerrar();
         or.encerrar();

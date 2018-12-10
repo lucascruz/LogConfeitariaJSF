@@ -24,11 +24,14 @@ public class Fornecedor {
 	private String telefone;
 	@Column(nullable = false, length = 50)
 	private String email;
+	
 	@OneToMany(mappedBy = "fornecedor", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Categoria> categorias = new ArrayList<Categoria>();
+	
 	@ManyToOne
 	@JoinColumn(name = "funcionario_fk")
 	private Funcionario funcionarios;
+	
 	@ManyToOne
 	@JoinColumn(name = "pedidos_fk")
 	private Pedido pedidos;
@@ -148,6 +151,7 @@ public class Fornecedor {
 
 
 
+	@Override
 	public String toString() {
 		return String.format(
 				"Fornecedor [id=%d, nome=\"%s\", cnpj=\"%s\", endereco=\"%s\", telefone=\"%s\", email=\"%s\"]", id,

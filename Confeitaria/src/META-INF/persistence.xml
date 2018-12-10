@@ -6,22 +6,23 @@
 	<persistence-unit name="AcademicoJPA"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.ufac.logconf.entidades.Categoria</class>
 		<class>br.ufac.logconf.entidades</class>
 		<properties>
 			<property name="hibernate.connection.driver_class"
 				value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/academico2?useTimezone=true&amp;serverTimezone=UTC" />
+				value="jdbc:mysql://localhost:3306/confeitaria?useTimezone=true&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="aluno" />
 			<property name="javax.persistence.jdbc.password"
-				value="aluno" />
+				value="Aluno123@" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="false" />
-			</properties>
+		</properties>
 	</persistence-unit>
 </persistence>

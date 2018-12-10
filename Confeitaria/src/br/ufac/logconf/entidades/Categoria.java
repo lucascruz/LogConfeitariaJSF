@@ -23,6 +23,7 @@ public class Categoria {
 	@ManyToOne
 	@JoinColumn(name="fornecedor_pk", nullable=false)
 	private Fornecedor fornecedor;
+	
 	@OneToMany(mappedBy="categoria", orphanRemoval=true, fetch = FetchType.LAZY)
 	private List <Material> materiais = new ArrayList<Material>();
 	
@@ -72,7 +73,6 @@ public class Categoria {
 	}
 
 
-
 	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
 	}
@@ -91,6 +91,7 @@ public class Categoria {
 
 
 
+	@Override
 	public String toString() {
 		return String.format("Categoria [id=%d, nome=\"%s\", descricao=\"%s\"]", id, nome, descricao);
 	}

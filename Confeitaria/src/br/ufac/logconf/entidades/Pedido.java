@@ -140,6 +140,7 @@ public class Pedido {
 
 
 
+	@Override
 	public String toString() {
 		return String.format(
 				"Categoria [id=%d, status=\"%s\", numero total de itens=%d, quantidade de materiais a pedir=%d]", id,

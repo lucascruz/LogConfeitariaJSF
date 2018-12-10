@@ -27,6 +27,8 @@ public class PedidoTeste {
 		ip2=ipr.recuperar(2);
 		ip3=ipr.recuperar(3);
 		
+		p3=pr.recuperar(3);
+		
 		
 		System.out.println("Adicionando items no pedido..1");
 		p1=new Pedido();
@@ -44,7 +46,7 @@ public class PedidoTeste {
 		System.out.println("Adicionando items no pedido..2");
 		p2=new Pedido();
 		p2.setId(2);
-		p2.setStatus("Solicitado");
+		p2.setStatus("Aguardando");
 		p2.setDataEntrada(Calendar.getInstance());
 		p2.setDataSaida(Calendar.getInstance());
 		p2.setQuantidadePedir(10);
@@ -56,7 +58,7 @@ public class PedidoTeste {
 		System.out.println("Adicionando items no pedido..3");
 		p3=new Pedido();
 		p3.setId(3);
-		p3.setStatus("Solicitado");
+		p3.setStatus("Cancelado");
 		p3.setDataEntrada(Calendar.getInstance());
 		p3.setDataSaida(Calendar.getInstance());
 		p3.setQuantidadePedir(10);
@@ -79,54 +81,39 @@ public class PedidoTeste {
 		
 		
 		
-//		c2=new Categoria();
-//		c2.setId(2);
-//		c2.setNome("Massas");
-//		c2.setDescricao("Tudo que vem do trigo");
-//		
-//		
-//		System.out.println("Adicionando categorias...");
-//		cr.adicionar(c1);
-//		cr.adicionar(c2);
-//		
-//		System.out.println("Listando categorias..");
-//		categorias = cr.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			System.out.println(categoria);
-//		}
+		System.out.println("Listando pedidos..");
+		pedidos = pr.recuperarTodos();
+		for(Pedido pedido : pedidos) {
+			System.out.println(pedido);
+		}
 		
-//		System.out.println("Recuperando categorias, id = 444");
-//		a4=ar.recuperar(444);
-//		a4.setNome("LOA");
-//		a4.setSexo("F");
-//		
-//		System.out.println("Atualizando categoria, id = 444");
-//		ar.atualizar(a4);
-//		
-//		System.out.println("Recuperando categorias id= 555");
-//		a4=ar.recuperar(555);
-//		a4.setNome("Alial");
-//		a4.setSexo("M");
-//		
-//		System.out.println("Atualizando categoria, id = 555");
-//		ar.atualizar(a5);
-//		
-//		System.out.println("Listando categorias, todos...");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			System.out.println(categoria);
-//		}
-//		
-//		System.out.println("Removendo categorias..");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			ar.remover(categoria);
-//		}
-//		System.out.println("Listando categorias,nenhum..");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			System.out.println(categoria);
-//		}
+		System.out.println("Recuperando pedidos, id = 2");
+		p2=pr.recuperar(2);
+		p2.setId(2);
+		p2.setStatus("Em andamento");
+		p2.setDataEntrada(Calendar.getInstance());
+		p2.setDataSaida(Calendar.getInstance());
+		p2.setQuantidadePedir(25);	
+		
+		System.out.println("Atualizando Pedido, id = 2");
+		pr.atualizar(p2);
+		
+		
+		System.out.println("Listando pedidos, todos...");
+		pedidos = pr.recuperarTodos();
+		for(Pedido pedido : pedidos) {
+			System.out.println(pedido);
+		}
+		
+		System.out.println("Removendo pedidos..");
+		pedidos = pr.recuperarTodos();
+		pr.remover(p3);
+
+		System.out.println("Listando pedidos..");
+		pedidos = pr.recuperarTodos();
+		for(Pedido pedido : pedidos) {
+			System.out.println(pedido);
+		}
 		ipr.encerrar();
 		pr.encerrar();
 	}

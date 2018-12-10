@@ -67,38 +67,33 @@ public class MaterialTeste {
 			System.out.println(material);
 		}
 		
-//		System.out.println("Recuperando categorias, id = 444");
-//		a4=ar.recuperar(444);
-//		a4.setNome("LOA");
-//		a4.setSexo("F");
+		System.out.println("Recuperando material, id = 1");
+		m1=mr.recuperar(11);
 		
-//		System.out.println("Atualizando categoria, id = 444");
-//		ar.atualizar(a4);
-//		
-//		System.out.println("Recuperando categorias id= 555");
-//		a4=ar.recuperar(555);
-//		a4.setNome("Alial");
-//		a4.setSexo("M");
-//		
-//		System.out.println("Atualizando categoria, id = 555");
-//		ar.atualizar(a5);
-//		
-//		System.out.println("Listando categorias, todos...");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			System.out.println(categoria);
+		m1.setNome("Porco");
+		m1.setDescricao("Bacon");
+		m1.setDataValidade("12/10/2010");
+		m1.setCategoria(c1);
+		
+		System.out.println("Atualizando material, id = 1");
+		mr.atualizar(m1);
+		
+		System.out.println("Listando Materiais, todos...");
+		materiais = mr.recuperarTodos();
+		for(Material material : materiais) {
+			System.out.println(material);
+		}
+		
+//		System.out.println("Removendo materiais..");
+//		materiais = mr.recuperarTodos();
+//		for(Material material : materiais) {
+//			mr.remover(material);
 //		}
-//		
-//		System.out.println("Removendo categorias..");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			ar.remover(categoria);
-//		}
-//		System.out.println("Listando categorias,nenhum..");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			System.out.println(categoria);
-//		}
+		System.out.println("Listando materiais..");
+		materiais = mr.recuperarTodos();
+		for(Material material : materiais) {
+			System.out.println(material);
+		}
 		
 		mr.encerrar();
 		cr.encerrar();

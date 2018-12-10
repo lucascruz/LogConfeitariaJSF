@@ -64,19 +64,18 @@ public class ItemPedido {
 	}
 
 
-	@Transient
 	public Pedido getPedido() {
 		return this.pedido;
 	}
 
 
-	@Transient
 	public void setPedido(Pedido pedido) {
 		this.pedido= pedido;
 	}
 
 
 
+	@Override
 	public String toString() {
 		return String.format("Material [Nome=%s, quantidade=%d]", material.toString(), quantidade);
 	}

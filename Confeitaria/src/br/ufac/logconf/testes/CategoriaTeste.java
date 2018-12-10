@@ -12,12 +12,13 @@ public class CategoriaTeste {
 		FornecedorRepositorio fr = new FornecedorRepositorio();
 		CategoriaRepositorio cr = new CategoriaRepositorio();
 
-
 		Categoria c1, c2;
 		Fornecedor f1, f2;
 		
 		f1 = fr.recuperar(1);
 		f2 = fr.recuperar(2);
+		
+		c2=cr.recuperar(2);
 
 		List<Fornecedor> fornecedores;
 		List<Categoria> categorias;
@@ -50,38 +51,33 @@ public class CategoriaTeste {
 			System.out.println(fornecedor);
 		}
 
-//		System.out.println("Recuperando categorias, id = 444");
-//		a4=ar.recuperar(444);
-//		a4.setNome("LOA");
-//		a4.setSexo("F");
-//		
-//		System.out.println("Atualizando categoria, id = 444");
-//		ar.atualizar(a4);
-//		
-//		System.out.println("Recuperando categorias id= 555");
-//		a4=ar.recuperar(555);
-//		a4.setNome("Alial");
-//		a4.setSexo("M");
-//		
-//		System.out.println("Atualizando categoria, id = 555");
-//		ar.atualizar(a5);
-//		
-//		System.out.println("Listando categorias, todos...");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			System.out.println(categoria);
-//		}
-//		
-//		System.out.println("Removendo categorias..");
-//		categorias = ar.recuperarTodos();
+		System.out.println("Recuperando categorias, id = 444");
+		c1=cr.recuperar(1);
+		c1.setNome("Carne");
+		c1.setDescricao("Tudo que vem da carne");
+		c1.setFornecedor(f2);
+		
+		System.out.println("Atualizando categoria, id = 1");
+		cr.atualizar(c1);
+		
+		
+		System.out.println("Listando categorias, todos...");
+		categorias = cr.recuperarTodos();
+		for(Categoria categoria : categorias) {
+			System.out.println(categoria);
+		}
+		
+		System.out.println("Removendo categorias..");
+		categorias = cr.recuperarTodos();
+		cr.remover(c2);
 //		for(Categoria categoria : categorias) {
 //			ar.remover(categoria);
 //		}
-//		System.out.println("Listando categorias,nenhum..");
-//		categorias = ar.recuperarTodos();
-//		for(Categoria categoria : categorias) {
-//			System.out.println(categoria);
-//		}
+		System.out.println("Listando categorias...");
+		categorias = cr.recuperarTodos();
+		for(Categoria categoria : categorias) {
+			System.out.println(categoria);
+		}
 		cr.encerrar();
 		fr.encerrar();
 
