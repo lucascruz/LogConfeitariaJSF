@@ -1,5 +1,6 @@
 package br.ufac.logconf.testes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ufac.logconf.entidades.*;
@@ -11,9 +12,19 @@ public class FornecedorTeste {
 
         FornecedorRepositorio or = new FornecedorRepositorio();
         FuncionarioRepositorio fr = new FuncionarioRepositorio();
+        CategoriaRepositorio cr = new CategoriaRepositorio();
 
         Fornecedor o1, o2;
         Funcionario f1;
+        Categoria c1, c2;
+        
+        
+        c1 = cr.recuperar(1);
+        c2 = cr.recuperar(2);
+        
+        List<Categoria> categorias = new ArrayList<Categoria>();
+        categorias.add(c1);
+        categorias.add(c2);
         
         
         
@@ -29,6 +40,7 @@ public class FornecedorTeste {
         o1.setTelefone("456");
         o1.setEmail("laila@hot");
         o1.setFuncionarios(f1);
+        o1.setCategorias(categorias);
         
         o2 = new Fornecedor();
         o2.setId(2);
@@ -37,7 +49,8 @@ public class FornecedorTeste {
         o2.setEndereco("Rua dele");
         o2.setTelefone("0123");
         o2.setEmail("lucas@hot");
-        o1.setFuncionarios(f1);
+        o2.setFuncionarios(f1);
+        o1.setCategorias(categorias);
        
 
 
@@ -53,7 +66,7 @@ public class FornecedorTeste {
             System.out.println(fornecedor);
         }
         
-        
+        fr.encerrar();
         or.encerrar();
     }
 }

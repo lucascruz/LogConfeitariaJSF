@@ -49,7 +49,7 @@ public class PedidoTeste {
 		p2.setDataSaida(Calendar.getInstance());
 		p2.setQuantidadePedir(10);
 		p2.addItemPedido(ip2);
-		p1.setFuncionarios_Pedido(f1);
+		p2.setFuncionarios_Pedido(f1);
 		System.out.println("Adicionados");
 		System.out.println(p2.getItemspedidos().size());
 		
@@ -61,7 +61,7 @@ public class PedidoTeste {
 		p3.setDataSaida(Calendar.getInstance());
 		p3.setQuantidadePedir(10);
 		p3.addItemPedido(ip3);
-		p1.setFuncionarios_Pedido(f1);
+		p3.setFuncionarios_Pedido(f1);
 		System.out.println("Adicionados");
 		System.out.println(p3.getItemspedidos().size());
 
