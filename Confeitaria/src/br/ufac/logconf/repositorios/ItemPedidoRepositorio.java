@@ -41,11 +41,10 @@ public class ItemPedidoRepositorio {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List <ItemPedido> recuperarTodos() {
+	public List<ItemPedido> recuperarTodos() {
 		return em.createNamedQuery("ItemPedido.todos").getResultList();
 
 	}
-
 
 	@SuppressWarnings("unchecked")
 	public List<ItemPedido> recuperarTodosPorID(int id) {

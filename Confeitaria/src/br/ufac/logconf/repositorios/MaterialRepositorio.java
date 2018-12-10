@@ -21,7 +21,7 @@ public class MaterialRepositorio {
 		em.persist(material);
 		em.getTransaction().commit();
 
-	}
+	} 
 
 	public Material recuperar(int id) {
 		return em.find(Material.class, id);

@@ -17,7 +17,7 @@ public class ItemPedidoTeste {
 //		ItemPedido ip1 = new ItemPedido();
 //		ItemPedido ip2 = new ItemPedido();
 //		ItemPedido ip3 = new ItemPedido();
-		
+
 		ItemPedido ip1 = ipr.recuperar(1);
 		ItemPedido ip2 = ipr.recuperar(2);
 		ItemPedido ip3 = ipr.recuperar(3);
@@ -70,21 +70,19 @@ public class ItemPedidoTeste {
 		}
 
 		System.out.println("Recuperando itens, id = 3");
-		ip3=ipr.recuperar(3);
+		ip3 = ipr.recuperar(3);
 		ip3.setMaterial(m3);
 		ip3.setQuantidade(30);
-		
-		
+
 		System.out.println("Atualizando item, id = 3");
 		ipr.atualizar(ip3);
-		
-		
+
 		System.out.println("Listando itens, todos...");
 		itempedidos = ipr.recuperarTodos();
-		for(ItemPedido itemPedido : itempedidos) {
+		for (ItemPedido itemPedido : itempedidos) {
 			System.out.println(itemPedido);
 		}
-		
+
 		System.out.println("Removendo itens...");
 		itempedidos = ipr.recuperarTodos();
 		ipr.remover(ip1);
@@ -93,7 +91,7 @@ public class ItemPedidoTeste {
 //		}
 		System.out.println("Listando itens...");
 		itempedidos = ipr.recuperarTodos();
-		for(ItemPedido itemPedido : itempedidos) {
+		for (ItemPedido itemPedido : itempedidos) {
 			System.out.println(itemPedido);
 		}
 		ipr.encerrar();

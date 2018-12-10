@@ -11,7 +11,6 @@ public class CategoriaRepositorio {
 	private EntityManagerFactory emf;
 	private EntityManager em;
 
-
 	public CategoriaRepositorio() {
 		emf = Persistence.createEntityManagerFactory("AcademicoJPA");
 		em = emf.createEntityManager();

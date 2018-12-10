@@ -22,7 +22,7 @@ public class PedidoRepositorio {
 		em.getTransaction().commit();
 
 	}
-
+ 
 	public Pedido recuperar(int id) {
 		return em.find(Pedido.class, id);
 	}
