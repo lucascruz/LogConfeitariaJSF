@@ -11,14 +11,16 @@ public class MaterialTeste {
 		
 		CategoriaRepositorio cr = new CategoriaRepositorio();
 		MaterialRepositorio mr = new MaterialRepositorio();
+		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
 				
 		Material m1, m2, m3;
 		Categoria c1, c2;
+		ItemPedido ip1;
 		
 		List<Material> materiais;
 		
 		
-		
+		ip1 = ipr.recuperar(1);
 		
 		c1 = cr.recuperar(1);
 		c2 = cr.recuperar(2);
@@ -31,6 +33,7 @@ public class MaterialTeste {
 		m1.setDescricao("LeiteBom");
 		m1.setDataValidade("12/10/2010");
 		m1.setCategoria(c1);
+		
 		
 		
 		m2 = new Material();
@@ -53,7 +56,10 @@ public class MaterialTeste {
 		mr.adicionar(m1);
 		mr.adicionar(m2);
 		mr.adicionar(m3);
-				
+		
+		m1.setItempedidos(ip1);
+		m2.setItempedidos(ip1);
+		m3.setItempedidos(ip1);
 		
 		System.out.println("Listando material...");
 		materiais = mr.recuperarTodos();
