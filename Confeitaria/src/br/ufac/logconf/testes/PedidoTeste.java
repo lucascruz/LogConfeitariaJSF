@@ -11,23 +11,33 @@ public class PedidoTeste {
 	public static void main(String[] args) {
 
 		PedidoRepositorio pr = new PedidoRepositorio();
+		MaterialRepositorio mr = new MaterialRepositorio();
 		FuncionarioRepositorio fr = new FuncionarioRepositorio();
 		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
 
 		ItemPedido ip1, ip2, ip3;
 		Funcionario f1;
 		Pedido p1, p2, p3;
+		Material m1, m2;
 
 		List<Pedido> pedidos;
 
 		f1 = fr.recuperar(1);
 		
-		ip1 = ipr.recuperar(1);
-		ip2 = ipr.recuperar(2);
-		ip3 = ipr.recuperar(3);
+		m1 = mr.recuperar(1);
 		
-
-
+//		ip1 = ipr.recuperar(1);
+//		ip2 = ipr.recuperar(2);
+//		ip3 = ipr.recuperar(3);
+		
+		ip1 = new ItemPedido();
+		ip2 = new ItemPedido();
+		ip3 = new ItemPedido();
+		
+		ip1.setMaterial(m1);
+		ip1.setQuantidade(10);
+		
+		
 		// p3 = pr.recuperar(3);
 
 		System.out.println("Adicionando items no pedido..1");
@@ -36,7 +46,7 @@ public class PedidoTeste {
 		p1.setStatus("Solicitado");
 		p1.setDataEntrada(Calendar.getInstance());
 		p1.setDataSaida(Calendar.getInstance());
-		p1.addItemPedido(ip1);;
+		p1.addItemPedido(ip1);
 		p1.setQuantidadePedir(10);
 		p1.setFuncionarios_Pedido(f1);
 		System.out.println("Adicionados");
@@ -102,6 +112,7 @@ public class PedidoTeste {
 			System.out.println(pedido);
 		}
 		ipr.encerrar();
+		mr.encerrar();
 		fr.encerrar();
 		pr.encerrar();
 	}

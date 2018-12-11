@@ -23,8 +23,8 @@ public class Pedido {
 	private Calendar dataSaida;
 
 	// @OneToMany(mappedBy = "pedido", orphanRemoval = true)
-	@OneToMany(mappedBy = "pedido", orphanRemoval = true)
-	private List<ItemPedido> itemspedidos = new ArrayList<ItemPedido>();
+	@OneToMany(orphanRemoval = true)
+	private List<ItemPedido> items = new ArrayList<ItemPedido>();
 
 	@Column(nullable = false, length = 100)
 	private int quantidadePedir;
@@ -75,11 +75,11 @@ public class Pedido {
 	}
 
 	public List<ItemPedido> getItemspedidos() {
-		return itemspedidos;
+		return items;
 	}
 
 	public void setItemspedidos(List<ItemPedido> itemspedidos) {
-		this.itemspedidos = itemspedidos;
+		this.items = itemspedidos;
 	}
 
 	public int getQuantidadePedir() {
@@ -110,19 +110,16 @@ public class Pedido {
 	public String toString() {
 		return String.format(
 				"Categoria [id=%d, status=\"%s\", numero total de itens=%d, quantidade de materiais a pedir=%d]", id,
-				status, itemspedidos.size(), quantidadePedir);
+				status, items.size(), quantidadePedir);
 	}
 
-
 	public void addItemPedido(ItemPedido ip1) {
-		ip1.setPedido(this);
+
 		getItemspedidos().add(ip1);
 	}
 
-
 	public void dellItemPedido(ItemPedido ip2) {
-		ip2.setPedido(null);
-		itemspedidos.remove(ip2);
+		getItemspedidos().remove(ip2);
 	}
 
 }

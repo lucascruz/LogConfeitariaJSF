@@ -91,7 +91,7 @@ public class FornecedorTeste {
 		for (Fornecedor fornecedor : fornecedores) {
 			System.out.println(fornecedor);
 		}
-
+		cr.encerrar();
 		fr.encerrar();
 		or.encerrar();
 	}

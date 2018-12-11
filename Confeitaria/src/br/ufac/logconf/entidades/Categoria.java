@@ -22,7 +22,7 @@ public class Categoria {
 	@JoinColumn(name = "fornecedor_pk", nullable = false)
 	private Fornecedor fornecedor;
 
-	@OneToMany(mappedBy = "categoria", orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "categoria", orphanRemoval = true)
 	private List<Material> materiais = new ArrayList<Material>();
 
 	public Categoria() {
