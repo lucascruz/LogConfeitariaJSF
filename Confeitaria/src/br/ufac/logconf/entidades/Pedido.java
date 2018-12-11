@@ -113,13 +113,15 @@ public class Pedido {
 				status, itemspedidos.size(), quantidadePedir);
 	}
 
-	@Transient
+
 	public void addItemPedido(ItemPedido ip1) {
-		itemspedidos.add(ip1);
+		ip1.setPedido(this);
+		getItemspedidos().add(ip1);
 	}
 
-	@Transient
+
 	public void dellItemPedido(ItemPedido ip2) {
+		ip2.setPedido(null);
 		itemspedidos.remove(ip2);
 	}
 

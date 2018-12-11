@@ -48,11 +48,11 @@ public class FornecedorTeste {
 		o2.setTelefone("0123");
 		o2.setEmail("lucas@hot");
 		o2.setFuncionarios(f1);
-		o2.setCategorias(categorias);
+	//	o2.setCategorias(categorias);
 
 		System.out.println("Adicionando fornecedor...");
 		or.adicionar(o1);
-		// or.adicionar(o2);
+		or.adicionar(o2);
 
 		System.out.println("Listando fornecedor...");
 		fornecedores = or.recuperarTodos();
@@ -69,7 +69,7 @@ public class FornecedorTeste {
 		o2.setTelefone("0123");
 		o2.setEmail("lucas@hot");
 		o2.setFuncionarios(f1);
-//        o2.setCategorias(categorias);
+ //       o2.setCategorias(categorias);
 
 		System.out.println("Atualizando fornecedor, id = 1");
 		or.atualizar(o2);

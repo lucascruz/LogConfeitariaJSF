@@ -22,7 +22,7 @@ public class MaterialTeste {
 		ip1 = ipr.recuperar(1);
 
 		c1 = cr.recuperar(1);
-		c2 = cr.recuperar(2);
+		// c2 = cr.recuperar(2);
 
 		m1 = new Material();
 		m1.setId(11);
@@ -43,7 +43,7 @@ public class MaterialTeste {
 		m3.setNome("Trigo");
 		m3.setDescricao("Sol");
 		m3.setDataValidade("12/10/2010");
-		m3.setCategoria(c2);
+		m3.setCategoria(c1);
 
 		System.out.println("Adicionando materiais...");
 		mr.adicionar(m1);
@@ -87,7 +87,7 @@ public class MaterialTeste {
 		for (Material material : materiais) {
 			System.out.println(material);
 		}
-
+		ipr.encerrar();
 		mr.encerrar();
 		cr.encerrar();
 
