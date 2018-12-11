@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class Pedido {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false, length = 50)
 	private String status;

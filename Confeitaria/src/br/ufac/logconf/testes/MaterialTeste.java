@@ -45,15 +45,15 @@ public class MaterialTeste {
 		m3.setDataValidade("12/10/2010");
 		m3.setCategoria(c1);
 
-		System.out.println("Adicionando materiais...");
-		mr.adicionar(m1);
-		mr.adicionar(m2);
-		mr.adicionar(m3);
+//		System.out.println("Adicionando materiais...");
+//		mr.adicionar(m1);
+//		mr.adicionar(m2);
+//		mr.adicionar(m3);
 
-		m1.setItempedidos(ip1);
-		m2.setItempedidos(ip1);
-		m3.setItempedidos(ip1);
-
+		m1.addItem(ip1);
+		m1.addItem(ip1);
+		m1.addItem(ip1);
+		
 		System.out.println("Listando material...");
 		materiais = mr.recuperarTodos();
 		for (Material material : materiais) {
@@ -69,7 +69,7 @@ public class MaterialTeste {
 		m1.setCategoria(c1);
 
 		System.out.println("Atualizando material, id = 1");
-		mr.atualizar(m1);
+		//mr.atualizar(m1);
 
 		System.out.println("Listando Materiais, todos...");
 		materiais = mr.recuperarTodos();

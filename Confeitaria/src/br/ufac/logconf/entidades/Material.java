@@ -1,6 +1,9 @@
 package br.ufac.logconf.entidades;
 
+import java.util.*;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "materiais")
@@ -22,9 +25,9 @@ public class Material {
 	@JoinColumn(name = "categoria_fk")
 	private Categoria categoria;
 
-	@ManyToOne
+	@OneToMany
 	@JoinColumn(name = "itempedido_fk")
-	private ItemPedido itempedidos;
+	private List<ItemPedido> itempedidos = new ArrayList<ItemPedido>();
 
 	public Material() {
 
@@ -70,12 +73,25 @@ public class Material {
 		this.categoria = categoria;
 	}
 
-	public ItemPedido getItempedidos() {
+
+
+	public List<ItemPedido> getItempedidos() {
 		return itempedidos;
 	}
 
-	public void setItempedidos(ItemPedido itempedidos) {
+	public void setItempedidos(List<ItemPedido> itempedidos) {
 		this.itempedidos = itempedidos;
+	}
+	
+	
+	public void addItem(ItemPedido i) {
+//		i.setPedido(this);
+		itempedidos.add(i);
+	}
+	
+	public void delItem(ItemPedido i) {
+//		i.setPedido(null);
+		itempedidos.remove(i);
 	}
 
 	@Override

@@ -12,10 +12,12 @@ public class ItemPedido {
 	private int id;
 	@Column(nullable = false, length = 50)
 	private int quantidade;
-
-	@ManyToOne (cascade = CascadeType.ALL)
+	@OneToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name="material_fk", nullable=false)
 	private Material material;
-
+	@ManyToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name="pedido_fk", nullable=false)
+	private Pedido pedido;
 	
 	public ItemPedido() {
 
@@ -37,8 +39,6 @@ public class ItemPedido {
 		this.quantidade = quantidade;
 	}
 
-
-
 	public Material getMaterial() {
 		return material;
 	}
@@ -46,10 +46,15 @@ public class ItemPedido {
 	public void setMaterial(Material material) {
 		this.material = material;
 	}
-
-
-
 	
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("Material [Nome=%s, quantidade=%d]", material.toString(), quantidade);
