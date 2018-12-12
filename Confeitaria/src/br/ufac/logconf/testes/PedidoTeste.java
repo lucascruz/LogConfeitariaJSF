@@ -14,15 +14,19 @@ public class PedidoTeste {
 		MaterialRepositorio mr = new MaterialRepositorio();
 		FuncionarioRepositorio fr = new FuncionarioRepositorio();
 		ItemPedidoRepositorio ipr = new ItemPedidoRepositorio();
+		FornecedorRepositorio fop = new FornecedorRepositorio();
 
 		ItemPedido ip1, ip2, ip3;
 		Funcionario f1;
 		Pedido p1, p2, p3;
 		Material m1, m2;
+		Fornecedor fo1;
 
 		List<Pedido> pedidos;
 
 		f1 = fr.recuperar(1);
+		
+		fo1 = fop.recuperar(1);
 		
 		m1 = mr.recuperar(1);
 		
@@ -46,9 +50,10 @@ public class PedidoTeste {
 		p1.setStatus("Solicitado");
 		p1.setDataEntrada(Calendar.getInstance());
 		p1.setDataSaida(Calendar.getInstance());
-		p1.addItemPedido(ip1);
-		p1.setQuantidadePedir(10);
+		ip1.setQuantidade(10);
 		p1.setFuncionarios_Pedido(f1);
+		p1.addItemPedido(ip1);
+		p1.addFornecedor(fo1);
 		System.out.println("Adicionados");
 		System.out.println(p1.getItemspedidos().size());
 
@@ -58,9 +63,10 @@ public class PedidoTeste {
 		p2.setStatus("Aguardando");
 		p2.setDataEntrada(Calendar.getInstance());
 		p2.setDataSaida(Calendar.getInstance());
-		p2.addItemPedido(ip2);
-		p2.setQuantidadePedir(10);
+		ip2.setQuantidade(10);
 		p2.setFuncionarios_Pedido(f1);
+		p2.addItemPedido(ip2);
+		p2.addFornecedor(fo1);
 		System.out.println("Adicionados");
 		System.out.println(p2.getItemspedidos().size());
 
@@ -70,9 +76,10 @@ public class PedidoTeste {
 		p3.setStatus("Cancelado");
 		p3.setDataEntrada(Calendar.getInstance());
 		p3.setDataSaida(Calendar.getInstance());
-		p3.addItemPedido(ip3);
-		p3.setQuantidadePedir(10);
+		ip3.setQuantidade(10);
 		p3.setFuncionarios_Pedido(f1);
+		p3.addItemPedido(ip3);
+		p3.addFornecedor(fo1);
 		System.out.println("Adicionados");
 		System.out.println(p3.getItemspedidos().size());
 
@@ -91,7 +98,7 @@ public class PedidoTeste {
 		p2.setStatus("Em andamento");
 		p2.setDataEntrada(Calendar.getInstance());
 		p2.setDataSaida(Calendar.getInstance());
-		p2.setQuantidadePedir(25);
+		ip2.setQuantidade(25);
 
 		System.out.println("Atualizando Pedido, id = 2");
 		pr.atualizar(p2);

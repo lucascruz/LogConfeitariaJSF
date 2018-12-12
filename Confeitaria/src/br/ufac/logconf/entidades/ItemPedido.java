@@ -15,8 +15,8 @@ public class ItemPedido {
 	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name="material_fk", nullable=false)
 	private Material material;
-	@ManyToOne (cascade = CascadeType.ALL)
-	@JoinColumn(name="pedido_fk", nullable=false)
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="pedido_fk")
 	private Pedido pedido;
 	
 	public ItemPedido() {

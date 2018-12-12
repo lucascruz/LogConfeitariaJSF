@@ -12,7 +12,6 @@ import javax.persistence.*;
 public class Pedido {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false, length = 50)
 	private String status;
@@ -24,21 +23,26 @@ public class Pedido {
 	private Calendar dataSaida;
 
 	// @OneToMany(mappedBy = "pedido", orphanRemoval = true)
-	@OneToMany(orphanRemoval = true)
+	@OneToMany
+	@JoinColumn(name = "item_pk")
 	private List<ItemPedido> items = new ArrayList<ItemPedido>();
-
-	@Column(nullable = false, length = 100)
-	private int quantidadePedir;
 
 	@ManyToOne
 	@JoinColumn(name = "funcionario_pk")
 	private Funcionario funcionarios_Pedido;
 
-	@OneToMany(mappedBy = "pedidos", orphanRemoval = true)
+	@OneToMany
+	@JoinColumn(name = "fornecedor_pk")
 	private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 
-	public Pedido() {
+	
 
+	public List<ItemPedido> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ItemPedido> items) {
+		this.items = items;
 	}
 
 	public int getId() {
@@ -83,14 +87,6 @@ public class Pedido {
 		this.items = itemspedidos;
 	}
 
-	public int getQuantidadePedir() {
-		return quantidadePedir;
-	}
-
-	public void setQuantidadePedir(int quantidadePedir) {
-		this.quantidadePedir = quantidadePedir;
-	}
-
 	public Funcionario getFuncionarios_Pedido() {
 		return funcionarios_Pedido;
 	}
@@ -110,17 +106,24 @@ public class Pedido {
 	@Override
 	public String toString() {
 		return String.format(
-				"Categoria [id=%d, status=\"%s\", numero total de itens=%d, quantidade de materiais a pedir=%d]", id,
-				status, items.size(), quantidadePedir);
+				"Categoria [id=%d, status=\"%s\", numero total de itens no pedido=%d]", id,
+				status, items.size() );
 	}
 
 	public void addItemPedido(ItemPedido ip1) {
-
-		getItemspedidos().add(ip1);
+		items.add(ip1);
 	}
 
 	public void dellItemPedido(ItemPedido ip2) {
-		getItemspedidos().remove(ip2);
+		items.remove(ip2);
+	}
+
+	public void addFornecedor(Fornecedor f1) {
+		fornecedores.add(f1);
+	}
+
+	public void dellFornecedor(Fornecedor f2) {
+		fornecedores.remove(f2);
 	}
 
 }

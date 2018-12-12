@@ -45,10 +45,10 @@ public class MaterialTeste {
 		m3.setDataValidade("12/10/2010");
 		m3.setCategoria(c1);
 
-//		System.out.println("Adicionando materiais...");
-//		mr.adicionar(m1);
-//		mr.adicionar(m2);
-//		mr.adicionar(m3);
+		System.out.println("Adicionando materiais...");
+		mr.adicionar(m1);
+		mr.adicionar(m2);
+		mr.adicionar(m3);
 
 		m1.addItem(ip1);
 		m1.addItem(ip1);
