@@ -50,9 +50,9 @@ public class MaterialTeste {
 		mr.adicionar(m2);
 		mr.adicionar(m3);
 
-		m1.addItem(ip1);
-		m1.addItem(ip1);
-		m1.addItem(ip1);
+		m1.setItempedidos(ip1);
+		m1.setItempedidos(ip1);
+		m1.setItempedidos(ip1);
 		
 		System.out.println("Listando material...");
 		materiais = mr.recuperarTodos();

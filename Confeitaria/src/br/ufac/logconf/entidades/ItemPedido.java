@@ -12,8 +12,8 @@ public class ItemPedido {
 	private int id;
 	@Column(nullable = false, length = 50)
 	private int quantidade;
-	@OneToOne (cascade = CascadeType.ALL)
-	@JoinColumn(name="material_fk", nullable=false)
+	@OneToOne (mappedBy="itempedidos")
+	@JoinColumn(name="material_fk")
 	private Material material;
 
 	public int getId() {

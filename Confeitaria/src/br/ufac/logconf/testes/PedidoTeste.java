@@ -18,7 +18,7 @@ public class PedidoTeste {
 
 		ItemPedido ip1, ip2, ip3;
 		Funcionario f1;
-		Pedido p1 = null, p2 = null, p3;
+		Pedido p1, p2, p3;
 		Material m1, m2;
 		Fornecedor fo1;
 
@@ -34,6 +34,11 @@ public class PedidoTeste {
 //		ip1 = ipr.recuperar(1);
 //		ip2 = ipr.recuperar(2);
 //		ip3 = ipr.recuperar(3);
+		
+		p1 = pr.recuperar(1);
+		p2 = pr.recuperar(2);
+		p3 = pr.recuperar(3);
+		
 		
 		ip1 = new ItemPedido();
 		ip2 = new ItemPedido();
@@ -53,48 +58,56 @@ public class PedidoTeste {
 		// p3 = pr.recuperar(3);
 
 		System.out.println("Adicionando items no pedido..1");
-		p1 = new Pedido();
+		/*p1 = new Pedido();
 		p1.setId(1);
 		p1.setStatus("Solicitado");
 		p1.setDataEntrada(Calendar.getInstance());
 		p1.setDataSaida(Calendar.getInstance());
-		p1.setFuncionarios_Pedido(f1);
+		p1.setFuncionarios_Pedido(f1);*/
+		p1.addItemPedido(ip1);
+		p1.addFornecedor(fo1);
 	
 		System.out.println("Adicionados");
 		System.out.println(p1.getItemspedidos().size());
 
 		System.out.println("Adicionando items no pedido..2");
-		p2 = new Pedido();
+		/*p2 = new Pedido();
 		p2.setId(2);
 		p2.setStatus("Aguardando");
 		p2.setDataEntrada(Calendar.getInstance());
 		p2.setDataSaida(Calendar.getInstance());
-		p2.setFuncionarios_Pedido(f1);
+		p2.setFuncionarios_Pedido(f1);*/
+		p2.addItemPedido(ip2);
+		p2.addFornecedor(fo1);
+		
 		System.out.println("Adicionados");
 		System.out.println(p2.getItemspedidos().size());
 
 		System.out.println("Adicionando items no pedido..3");
-		p3 = new Pedido();
+	/*	p3 = new Pedido();
 		p3.setId(3);
 		p3.setStatus("Cancelado");
 		p3.setDataEntrada(Calendar.getInstance());
 		p3.setDataSaida(Calendar.getInstance());
-		p3.setFuncionarios_Pedido(f1);
+		p3.setFuncionarios_Pedido(f1);*/
+		p3.addItemPedido(ip3);
+		p3.addFornecedor(fo1);
+		
 		System.out.println("Adicionados");
 		System.out.println(p3.getItemspedidos().size());
+		
+		
+		ipr.adicionar(ip1);
+		ipr.adicionar(ip2);
+		ipr.adicionar(ip3);
 
 		pr.adicionar(p1);
 		pr.adicionar(p2);
 		pr.adicionar(p3);
 		
-		p1.addItemPedido(ip1);
-		p1.addFornecedor(fo1);
+
+
 		
-		p2.addItemPedido(ip2);
-		p2.addFornecedor(fo1);
-		
-		p3.addItemPedido(ip3);
-		p3.addFornecedor(fo1);
 
 		System.out.println("Listando pedidos..");
 		pedidos = pr.recuperarTodos();

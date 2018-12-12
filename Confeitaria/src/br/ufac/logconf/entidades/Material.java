@@ -25,9 +25,9 @@ public class Material {
 	@JoinColumn(name = "categoria_fk")
 	private Categoria categoria;
 
-	@OneToMany
+	@OneToOne(cascade=CascadeType.ALL, optional = false)
 	@JoinColumn(name = "itempedido_fk")
-	private List<ItemPedido> itempedidos = new ArrayList<ItemPedido>();
+	private ItemPedido itempedidos;
 
 	public Material() {
 
@@ -75,23 +75,13 @@ public class Material {
 
 
 
-	public List<ItemPedido> getItempedidos() {
+
+	public ItemPedido getItempedidos() {
 		return itempedidos;
 	}
 
-	public void setItempedidos(List<ItemPedido> itempedidos) {
+	public void setItempedidos(ItemPedido itempedidos) {
 		this.itempedidos = itempedidos;
-	}
-	
-	
-	public void addItem(ItemPedido i) {
-//		i.setPedido(this);
-		itempedidos.add(i);
-	}
-	
-	public void delItem(ItemPedido i) {
-//		i.setPedido(null);
-		itempedidos.remove(i);
 	}
 
 	@Override
