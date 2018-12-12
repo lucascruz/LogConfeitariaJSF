@@ -18,7 +18,7 @@ public class PedidoTeste {
 
 		ItemPedido ip1, ip2, ip3;
 		Funcionario f1;
-		Pedido p1, p2, p3;
+		Pedido p1 = null, p2 = null, p3;
 		Material m1, m2;
 		Fornecedor fo1;
 
@@ -29,6 +29,7 @@ public class PedidoTeste {
 		fo1 = fop.recuperar(1);
 		
 		m1 = mr.recuperar(1);
+		m2 = mr.recuperar(2);
 		
 //		ip1 = ipr.recuperar(1);
 //		ip2 = ipr.recuperar(2);
@@ -38,8 +39,15 @@ public class PedidoTeste {
 		ip2 = new ItemPedido();
 		ip3 = new ItemPedido();
 		
+		ip1.setId(1);
 		ip1.setMaterial(m1);
 		ip1.setQuantidade(10);
+
+		
+		ip2.setId(1);
+		ip2.setMaterial(m2);
+		ip2.setQuantidade(5);
+	
 		
 		
 		// p3 = pr.recuperar(3);
@@ -50,10 +58,8 @@ public class PedidoTeste {
 		p1.setStatus("Solicitado");
 		p1.setDataEntrada(Calendar.getInstance());
 		p1.setDataSaida(Calendar.getInstance());
-		ip1.setQuantidade(10);
 		p1.setFuncionarios_Pedido(f1);
-		p1.addItemPedido(ip1);
-		p1.addFornecedor(fo1);
+	
 		System.out.println("Adicionados");
 		System.out.println(p1.getItemspedidos().size());
 
@@ -63,10 +69,7 @@ public class PedidoTeste {
 		p2.setStatus("Aguardando");
 		p2.setDataEntrada(Calendar.getInstance());
 		p2.setDataSaida(Calendar.getInstance());
-		ip2.setQuantidade(10);
 		p2.setFuncionarios_Pedido(f1);
-		p2.addItemPedido(ip2);
-		p2.addFornecedor(fo1);
 		System.out.println("Adicionados");
 		System.out.println(p2.getItemspedidos().size());
 
@@ -76,16 +79,22 @@ public class PedidoTeste {
 		p3.setStatus("Cancelado");
 		p3.setDataEntrada(Calendar.getInstance());
 		p3.setDataSaida(Calendar.getInstance());
-		ip3.setQuantidade(10);
 		p3.setFuncionarios_Pedido(f1);
-		p3.addItemPedido(ip3);
-		p3.addFornecedor(fo1);
 		System.out.println("Adicionados");
 		System.out.println(p3.getItemspedidos().size());
 
 		pr.adicionar(p1);
 		pr.adicionar(p2);
 		pr.adicionar(p3);
+		
+		p1.addItemPedido(ip1);
+		p1.addFornecedor(fo1);
+		
+		p2.addItemPedido(ip2);
+		p2.addFornecedor(fo1);
+		
+		p3.addItemPedido(ip3);
+		p3.addFornecedor(fo1);
 
 		System.out.println("Listando pedidos..");
 		pedidos = pr.recuperarTodos();

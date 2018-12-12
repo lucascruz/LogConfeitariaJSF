@@ -15,13 +15,6 @@ public class ItemPedido {
 	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name="material_fk", nullable=false)
 	private Material material;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="pedido_fk")
-	private Pedido pedido;
-	
-	public ItemPedido() {
-
-	}
 
 	public int getId() {
 		return id;
@@ -47,14 +40,6 @@ public class ItemPedido {
 		this.material = material;
 	}
 	
-	public Pedido getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
-
 	@Override
 	public String toString() {
 		return String.format("Material [Nome=%s, quantidade=%d]", material.toString(), quantidade);

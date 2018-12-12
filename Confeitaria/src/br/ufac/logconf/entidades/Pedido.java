@@ -22,7 +22,6 @@ public class Pedido {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataSaida;
 
-	// @OneToMany(mappedBy = "pedido", orphanRemoval = true)
 	@OneToMany
 	@JoinColumn(name = "item_pk")
 	private List<ItemPedido> items = new ArrayList<ItemPedido>();

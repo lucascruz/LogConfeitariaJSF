@@ -22,7 +22,7 @@ public class MaterialTeste {
 		ip1 = ipr.recuperar(1);
 
 		c1 = cr.recuperar(1);
-		// c2 = cr.recuperar(2);
+		c2 = cr.recuperar(2);
 
 		m1 = new Material();
 		m1.setId(11);
@@ -36,7 +36,7 @@ public class MaterialTeste {
 		m2.setNome("Margarina");
 		m2.setDescricao("Delicia");
 		m2.setDataValidade("12/10/2010");
-		m2.setCategoria(c1);
+		m2.setCategoria(c2);
 
 		m3 = new Material();
 		m3.setId(33);

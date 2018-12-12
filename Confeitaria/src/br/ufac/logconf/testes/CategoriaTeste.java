@@ -66,9 +66,9 @@ public class CategoriaTeste {
 			System.out.println(categoria);
 		}
 
-		System.out.println("Removendo categorias..");
-		categorias = cr.recuperarTodos();
-		cr.remover(c2);
+//		System.out.println("Removendo categorias..");
+//		categorias = cr.recuperarTodos();
+//		cr.remover(c2);
 //		for(Categoria categoria : categorias) {
 //			ar.remover(categoria);
 //		}
