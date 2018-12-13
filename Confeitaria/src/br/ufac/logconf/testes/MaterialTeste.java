@@ -15,15 +15,19 @@ public class MaterialTeste {
 
 		Material m1, m2, m3;
 		Categoria c1, c2;
-		ItemPedido ip1;
+		//ItemPedido ip1;
 
 		List<Material> materiais;
+		
+		m1 = mr.recuperar(11);
+		m2 = mr.recuperar(22);
+		m3 = mr.recuperar(33);
 
-		ip1 = ipr.recuperar(1);
+	//	ip1 = ipr.recuperar(1);
 
-		c1 = cr.recuperar(1);
-		c2 = cr.recuperar(2);
-
+	//	c1 = cr.recuperar(1);
+		c2 = cr.recuperar(1);
+		/*
 		m1 = new Material();
 		m1.setId(11);
 		m1.setNome("Leite");
@@ -43,24 +47,35 @@ public class MaterialTeste {
 		m3.setNome("Trigo");
 		m3.setDescricao("Sol");
 		m3.setDataValidade("12/10/2010");
-		m3.setCategoria(c1);
+		m3.setCategoria(c1);*/
 
-		System.out.println("Adicionando materiais...");
+/*		System.out.println("Adicionando materiais...");
 		mr.adicionar(m1);
 		mr.adicionar(m2);
-		mr.adicionar(m3);
-
-		m1.setItempedidos(ip1);
-		m1.setItempedidos(ip1);
-		m1.setItempedidos(ip1);
+		mr.adicionar(m3);*/
 		
+		//m1.setCategoria(c1);
+		m2.setCategoria(c2);
+	//	m3.setCategoria(c1);
+		
+		System.out.println("Atualizando Materiais");
+		mr.atualizar(m1);
+		mr.atualizar(m2);
+		mr.atualizar(m3);
+
+
+		
+		/*;
+		m1.setItempedidos(ip1);
+		m1.setItempedidos(ip1);
+		*/
 		System.out.println("Listando material...");
 		materiais = mr.recuperarTodos();
 		for (Material material : materiais) {
 			System.out.println(material);
 		}
 
-		System.out.println("Recuperando material, id = 1");
+		/*System.out.println("Recuperando material, id = 1");
 		m1 = mr.recuperar(11);
 
 		m1.setNome("Porco");
@@ -75,18 +90,18 @@ public class MaterialTeste {
 		materiais = mr.recuperarTodos();
 		for (Material material : materiais) {
 			System.out.println(material);
-		}
+		}*/
 
 //		System.out.println("Removendo materiais..");
 //		materiais = mr.recuperarTodos();
 //		for(Material material : materiais) {
 //			mr.remover(material);
 //		}
-		System.out.println("Listando materiais..");
+		/*System.out.println("Listando materiais..");
 		materiais = mr.recuperarTodos();
 		for (Material material : materiais) {
 			System.out.println(material);
-		}
+		}*/
 		ipr.encerrar();
 		mr.encerrar();
 		cr.encerrar();

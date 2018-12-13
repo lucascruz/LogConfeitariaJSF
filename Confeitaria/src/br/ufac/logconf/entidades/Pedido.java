@@ -13,7 +13,7 @@ public class Pedido {
 
 	@Id
 	private int id;
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false, length = 50)	
 	private String status;
 	@Column(nullable = false, length = 10)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -26,13 +26,13 @@ public class Pedido {
 	@JoinColumn(name = "item_pk")
 	private List<ItemPedido> items = new ArrayList<ItemPedido>();
 
-	@ManyToOne
-	@JoinColumn(name = "funcionario_pk")
-	private Funcionario funcionarios_Pedido;
-
 	@OneToMany
 	@JoinColumn(name = "fornecedor_pk")
 	private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+	
+	@ManyToOne
+	@JoinColumn(name = "funcionario_pk")
+	private Funcionario funcionarios_Pedido;
 
 	
 
@@ -102,27 +102,28 @@ public class Pedido {
 		this.fornecedores = fornecedores;
 	}
 
+	public void addItemPedido(ItemPedido ip1) {
+		this.items.add(ip1);
+	}
+
+	public void dellItemPedido(ItemPedido ip2) {
+		this.items.remove(ip2);
+	}
+
+	public void addFornecedor(Fornecedor f1) {
+		this.fornecedores.add(f1);
+	}
+
+	public void dellFornecedor(Fornecedor f2) {
+		this.fornecedores.remove(f2);
+	}
+	
+
 	@Override
 	public String toString() {
 		return String.format(
 				"Categoria [id=%d, status=\"%s\", numero total de itens no pedido=%d]", id,
 				status, items.size() );
-	}
-
-	public void addItemPedido(ItemPedido ip1) {
-		items.add(ip1);
-	}
-
-	public void dellItemPedido(ItemPedido ip2) {
-		items.remove(ip2);
-	}
-
-	public void addFornecedor(Fornecedor f1) {
-		fornecedores.add(f1);
-	}
-
-	public void dellFornecedor(Fornecedor f2) {
-		fornecedores.remove(f2);
 	}
 
 }

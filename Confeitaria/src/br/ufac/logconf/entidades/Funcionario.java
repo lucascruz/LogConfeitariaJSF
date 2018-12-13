@@ -27,8 +27,7 @@ public class Funcionario {
 	@Column(nullable = false, length = 50)
 	private String endereco;
 
-	@OneToMany(mappedBy = "funcionarios", orphanRemoval = true, fetch = FetchType.LAZY)
-	private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+
 
 	@OneToMany(mappedBy = "funcionarios_Pedido", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Pedido> pedidos = new ArrayList<Pedido>();
@@ -91,14 +90,6 @@ public class Funcionario {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-
-	public List<Fornecedor> getFornecedores() {
-		return fornecedores;
-	}
-
-	public void setFornecedores(List<Fornecedor> fornecedores) {
-		this.fornecedores = fornecedores;
 	}
 
 	public List<Pedido> getPedidos() {

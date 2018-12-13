@@ -25,7 +25,6 @@ public class MaterialRepositorio {
 
 	public Material recuperar(int id) {
 		return em.find(Material.class, id);
-
 	}
 
 	public void atualizar(Material material) {

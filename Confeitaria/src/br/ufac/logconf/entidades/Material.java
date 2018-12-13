@@ -1,6 +1,5 @@
 package br.ufac.logconf.entidades;
 
-import java.util.*;
 
 import javax.persistence.*;
 
@@ -21,17 +20,15 @@ public class Material {
 	@Column(nullable = false, length = 10)
 	private String dataValidade;
 
+	
 	@ManyToOne
 	@JoinColumn(name = "categoria_fk")
 	private Categoria categoria;
 
-	@OneToOne(cascade=CascadeType.ALL, optional = false)
+	@OneToOne(mappedBy="material")
 	@JoinColumn(name = "itempedido_fk")
 	private ItemPedido itempedidos;
 
-	public Material() {
-
-	}
 
 	public int getId() {
 		return id;
@@ -73,9 +70,6 @@ public class Material {
 		this.categoria = categoria;
 	}
 
-
-
-
 	public ItemPedido getItempedidos() {
 		return itempedidos;
 	}
@@ -83,6 +77,7 @@ public class Material {
 	public void setItempedidos(ItemPedido itempedidos) {
 		this.itempedidos = itempedidos;
 	}
+	
 
 	@Override
 	public String toString() {

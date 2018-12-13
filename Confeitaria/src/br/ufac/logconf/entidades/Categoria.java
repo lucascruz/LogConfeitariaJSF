@@ -18,15 +18,13 @@ public class Categoria {
 	@Column(nullable = false, length = 100)
 	private String descricao;
 
-	@ManyToOne
-	@JoinColumn(name = "fornecedor_pk", nullable = false)
+	@OneToOne
+	@JoinColumn(name="fornecedor_pk")
 	private Fornecedor fornecedor;
 
-	@OneToMany(mappedBy = "categoria", orphanRemoval = true)
+	@OneToMany
+	@JoinColumn(name="material_fk")
 	private List<Material> materiais = new ArrayList<Material>();
-
-	public Categoria() {
-	}
 
 	public int getId() {
 		return id;
@@ -52,6 +50,15 @@ public class Categoria {
 		this.descricao = descricao;
 	}
 
+
+	public List<Material> getMateriais() {
+		return materiais;
+	}
+
+	public void setMateriais(List<Material> materiais) {
+		this.materiais = materiais;
+	}
+	
 	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
@@ -60,12 +67,12 @@ public class Categoria {
 		this.fornecedor = fornecedor;
 	}
 
-	public List<Material> getMateriais() {
-		return materiais;
+	public void addMaterial(Material material) {
+		this.materiais.add(material);
 	}
-
-	public void setMateriais(List<Material> materiais) {
-		this.materiais = materiais;
+	
+	public void delMaterial(Material material) {
+		this.materiais.remove(material);
 	}
 
 	@Override

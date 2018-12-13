@@ -18,7 +18,7 @@ public class CategoriaTeste {
 		f1 = fr.recuperar(1);
 		f2 = fr.recuperar(2);
 
-		c2 = cr.recuperar(2);
+		//c2 = cr.recuperar(2);
 
 		List<Fornecedor> fornecedores;
 		List<Categoria> categorias;
@@ -28,16 +28,19 @@ public class CategoriaTeste {
 		c1.setNome("laticineos");
 		c1.setDescricao("Tudo que vem da vaca");
 		c1.setFornecedor(f1);
+		//c1.addMaterial(m1);
 
-		c2 = new Categoria();
+
+/*		c2 = new Categoria();
 		c2.setId(2);
 		c2.setNome("Massas");
 		c2.setDescricao("Tudo que vem do trigo");
-		c2.setFornecedor(f2);
+		c2.addFornecedor(f2);*/
+		//c1.addMaterial(m1);
 
 		System.out.println("Adicionando categorias...");
 		cr.adicionar(c1);
-		cr.adicionar(c2);
+		//cr.adicionar(c2);
 
 		System.out.println("Listando categorias..");
 		categorias = cr.recuperarTodos();
@@ -45,17 +48,11 @@ public class CategoriaTeste {
 			System.out.println(categoria);
 		}
 
-		System.out.println("Listando fornecedores..");
-		fornecedores = fr.recuperarTodos();
-		for (Fornecedor fornecedor : fornecedores) {
-			System.out.println(fornecedor);
-		}
-
-		System.out.println("Recuperando categorias, id = 444");
+/*		System.out.println("Recuperando categorias, id = 444");
 		c1 = cr.recuperar(1);
 		c1.setNome("Carne");
 		c1.setDescricao("Tudo que vem da carne");
-		c1.setFornecedor(f2);
+		c1.addFornecedor(f2);
 
 		System.out.println("Atualizando categoria, id = 1");
 		cr.atualizar(c1);
@@ -64,7 +61,7 @@ public class CategoriaTeste {
 		categorias = cr.recuperarTodos();
 		for (Categoria categoria : categorias) {
 			System.out.println(categoria);
-		}
+		}*/
 
 //		System.out.println("Removendo categorias..");
 //		categorias = cr.recuperarTodos();

@@ -1,8 +1,5 @@
 package br.ufac.logconf.entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.*;
 
 @Entity
@@ -24,20 +21,13 @@ public class Fornecedor {
 	@Column(nullable = false, length = 50)
 	private String email;
 
-	@OneToMany(mappedBy = "fornecedor", orphanRemoval = true, fetch = FetchType.LAZY)
-	private List<Categoria> categorias = new ArrayList<Categoria>();
+	@OneToOne
+	@JoinColumn(name = "categoria_fk", nullable = true)
+	private Categoria categorias;
 
 	@ManyToOne
-	@JoinColumn(name = "funcionario_fk")
-	private Funcionario funcionarios;
-
-	@ManyToOne
-	@JoinColumn(name = "pedidos_fk")
+	@JoinColumn(name = "pedidos_fk", nullable = true)
 	private Pedido pedidos;
-
-	public Fornecedor() {
-		super();
-	}
 
 	public int getId() {
 		return id;
@@ -87,20 +77,12 @@ public class Fornecedor {
 		this.email = email;
 	}
 
-	public List<Categoria> getCategorias() {
+	public Categoria getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(List<Categoria> categorias) {
+	public void setCategorias(Categoria categorias) {
 		this.categorias = categorias;
-	}
-
-	public Funcionario getFuncionarios() {
-		return funcionarios;
-	}
-
-	public void setFuncionarios(Funcionario funcionarios) {
-		this.funcionarios = funcionarios;
 	}
 
 	public Pedido getPedidos() {

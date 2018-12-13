@@ -77,9 +77,9 @@ public class FuncionarioTeste {
 			System.out.println(aluno);
 		}
 
-		System.out.println("Removendo funcionarios..");
-		funcionarios = fr.recuperarTodos();
-		fr.remover(f3);
+		//System.out.println("Removendo funcionarios..");
+		//funcionarios = fr.recuperarTodos();
+	//	fr.remover(f3);
 //		for(Funcionario funcionario : funcionarios) {
 //			fr.remover(funcionario);
 		// }
