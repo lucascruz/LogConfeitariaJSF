@@ -29,12 +29,9 @@ public class Funcionario {
 
 
 
-	@OneToMany(mappedBy = "funcionarios_Pedido", orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "funcionario", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Pedido> pedidos = new ArrayList<Pedido>();
 
-	public Funcionario() {
-		super();
-	}
 
 	public int getId() {
 		return id;

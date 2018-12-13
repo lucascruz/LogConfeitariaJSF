@@ -22,8 +22,7 @@ public class Categoria {
 	@JoinColumn(name="fornecedor_pk")
 	private Fornecedor fornecedor;
 
-	@OneToMany
-	@JoinColumn(name="material_fk")
+	@OneToMany(mappedBy="categoria")
 	private List<Material> materiais = new ArrayList<Material>();
 
 	public int getId() {

@@ -101,7 +101,7 @@ public class PedidoTeste {
 		
 		
 		ipr.adicionar(ip1);
-	ipr.adicionar(ip2);
+		ipr.adicionar(ip2);
 		ipr.adicionar(ip3);
 
 		pr.adicionar(p1);

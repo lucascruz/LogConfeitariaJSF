@@ -31,16 +31,16 @@ public class CategoriaTeste {
 		//c1.addMaterial(m1);
 
 
-/*		c2 = new Categoria();
+		c2 = new Categoria();
 		c2.setId(2);
 		c2.setNome("Massas");
 		c2.setDescricao("Tudo que vem do trigo");
-		c2.addFornecedor(f2);*/
+		c2.setFornecedor(f2);
 		//c1.addMaterial(m1);
 
 		System.out.println("Adicionando categorias...");
 		cr.adicionar(c1);
-		//cr.adicionar(c2);
+		cr.adicionar(c2);
 
 		System.out.println("Listando categorias..");
 		categorias = cr.recuperarTodos();

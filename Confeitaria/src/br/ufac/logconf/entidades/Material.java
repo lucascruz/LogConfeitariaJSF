@@ -20,15 +20,9 @@ public class Material {
 	@Column(nullable = false, length = 10)
 	private String dataValidade;
 
-	
 	@ManyToOne
 	@JoinColumn(name = "categoria_fk")
 	private Categoria categoria;
-
-	@OneToOne(mappedBy="material")
-	@JoinColumn(name = "itempedido_fk")
-	private ItemPedido itempedidos;
-
 
 	public int getId() {
 		return id;
@@ -68,14 +62,6 @@ public class Material {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-	}
-
-	public ItemPedido getItempedidos() {
-		return itempedidos;
-	}
-
-	public void setItempedidos(ItemPedido itempedidos) {
-		this.itempedidos = itempedidos;
 	}
 	
 

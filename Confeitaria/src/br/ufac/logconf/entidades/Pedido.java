@@ -23,7 +23,7 @@ public class Pedido {
 	private Calendar dataSaida;
 
 	@OneToMany
-	@JoinColumn(name = "item_pk")
+	@JoinColumn(name = "pedido_pk")
 	private List<ItemPedido> items = new ArrayList<ItemPedido>();
 
 	@OneToMany
@@ -32,7 +32,7 @@ public class Pedido {
 	
 	@ManyToOne
 	@JoinColumn(name = "funcionario_pk")
-	private Funcionario funcionarios_Pedido;
+	private Funcionario funcionario;
 
 	
 
@@ -87,11 +87,11 @@ public class Pedido {
 	}
 
 	public Funcionario getFuncionarios_Pedido() {
-		return funcionarios_Pedido;
+		return funcionario;
 	}
 
 	public void setFuncionarios_Pedido(Funcionario funcionarios_Pedido) {
-		this.funcionarios_Pedido = funcionarios_Pedido;
+		this.funcionario = funcionarios_Pedido;
 	}
 
 	public List<Fornecedor> getFornecedores() {
