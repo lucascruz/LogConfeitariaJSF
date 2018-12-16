@@ -20,14 +20,12 @@ public class Funcionario {
 	private String cpf;
 	@Column(nullable = false, length = 50)
 	private String telefone;
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false, length = 1)
 	private String sexo;
 	@Column(nullable = false, length = 50)
 	private int idade;
 	@Column(nullable = false, length = 50)
 	private String endereco;
-
-
 
 	@OneToMany(mappedBy = "funcionario", orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Pedido> pedidos = new ArrayList<Pedido>();

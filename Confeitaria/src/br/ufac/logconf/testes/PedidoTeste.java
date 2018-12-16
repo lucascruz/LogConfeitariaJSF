@@ -1,6 +1,7 @@
 package br.ufac.logconf.testes;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import br.ufac.logconf.repositorios.*;
@@ -32,16 +33,16 @@ public class PedidoTeste {
 		m2 = mr.recuperar(2);
 		m3 = mr.recuperar(3);
 		
-//		ip1 = ipr.recuperar(1);
-//		ip2 = ipr.recuperar(2);
-//		ip3 = ipr.recuperar(3);
+		ip1 = ipr.recuperar(1);
+		ip2 = ipr.recuperar(2);
+		ip3 = ipr.recuperar(3);
 		
-//		p1 = pr.recuperar(1);
-//		p2 = pr.recuperar(2);
-//		p3 = pr.recuperar(3);
+		p1 = pr.recuperar(1);
+		p2 = pr.recuperar(2);
+		p3 = pr.recuperar(3);
 		
 		
-		ip1 = new ItemPedido();
+		/*ip1 = new ItemPedido();
 		ip2 = new ItemPedido();
 		ip3 = new ItemPedido();
 		
@@ -97,16 +98,24 @@ public class PedidoTeste {
 		p3.addFornecedor(fo1);
 	
 		System.out.println("Quantidade de itens:");
-		System.out.println(p3.getItemspedidos().size());
+		System.out.println(p3.getItemspedidos().size());*/
 		
 		
-		ipr.adicionar(ip1);
+/*		ipr.adicionar(ip1);
 		ipr.adicionar(ip2);
 		ipr.adicionar(ip3);
 
 		pr.adicionar(p1);
 		pr.adicionar(p2);
-		pr.adicionar(p3);
+		pr.adicionar(p3);*/
+		
+		ipr.atualizar(ip1);
+		ipr.atualizar(ip2);
+		ipr.atualizar(ip3);
+
+		pr.atualizar(p1);
+		pr.atualizar(p2);
+		pr.atualizar(p3);
 		
 		System.out.println("Listando pedidos..");
 		pedidos = pr.recuperarTodos();

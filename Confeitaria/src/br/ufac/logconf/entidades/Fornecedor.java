@@ -20,6 +20,8 @@ public class Fornecedor {
 	private String telefone;
 	@Column(nullable = false, length = 50)
 	private String email;
+	
+	
 
 	@OneToOne
 	@JoinColumn(name = "categoria_fk", nullable = true)

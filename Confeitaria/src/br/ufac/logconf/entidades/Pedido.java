@@ -33,8 +33,16 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name = "funcionario_pk")
 	private Funcionario funcionario;
-
 	
+	
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
 
 	public List<ItemPedido> getItems() {
 		return items;
