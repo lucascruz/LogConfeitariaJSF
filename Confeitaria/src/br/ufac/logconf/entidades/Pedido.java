@@ -21,6 +21,10 @@ public class Pedido {
 	@Column(nullable = false, length = 10)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataSaida;
+	
+	
+	//private Fornecedor fornecedor;
+	
 
 	@OneToMany
 	@JoinColumn(name = "pedido_pk")
@@ -126,6 +130,16 @@ public class Pedido {
 		this.fornecedores.remove(f2);
 	}
 	
+	
+	
+
+/*	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}*/
 
 	@Override
 	public String toString() {
