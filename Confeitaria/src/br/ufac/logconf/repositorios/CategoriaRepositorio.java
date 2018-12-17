@@ -17,7 +17,8 @@ public class CategoriaRepositorio {
 	}
 
 	public void adicionar(Categoria categoria) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.persist(categoria);
 		em.getTransaction().commit();
 	}
@@ -27,13 +28,15 @@ public class CategoriaRepositorio {
 	}
 
 	public void atualizar(Categoria categoria) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.merge(categoria);
 		em.getTransaction().commit();
 	}
 
 	public void remover(Categoria categoria) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.remove(categoria);
 		em.getTransaction().commit();
 	}

@@ -16,8 +16,8 @@ public class MaterialRepositorio {
 	}
 
 	public void adicionar(Material material) {
-
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.persist(material);
 		em.getTransaction().commit();
 
@@ -28,13 +28,15 @@ public class MaterialRepositorio {
 	}
 
 	public void atualizar(Material material) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.merge(material);
 		em.getTransaction().commit();
 	}
 
 	public void remover(Material material) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.remove(material);
 		em.getTransaction().commit();
 	}

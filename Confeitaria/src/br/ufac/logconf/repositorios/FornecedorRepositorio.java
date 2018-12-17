@@ -16,7 +16,8 @@ public class FornecedorRepositorio {
 	}
 
 	public void adicionar(Fornecedor fornecedor) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.persist(fornecedor);
 		em.getTransaction().commit();
 	}
@@ -26,13 +27,15 @@ public class FornecedorRepositorio {
 	}
 
 	public void atualizar(Fornecedor fornecedor) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.merge(fornecedor);
 		em.getTransaction().commit();
 	}
 
 	public void remover(Fornecedor fornecedor) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.remove(fornecedor);
 		em.getTransaction().commit();
 	}

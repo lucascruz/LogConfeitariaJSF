@@ -16,8 +16,8 @@ public class PedidoRepositorio {
 	}
 
 	public void adicionar(Pedido pedidos) {
-
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.persist(pedidos);
 		em.getTransaction().commit();
 
@@ -28,13 +28,15 @@ public class PedidoRepositorio {
 	}
 
 	public void atualizar(Pedido pedidos) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.merge(pedidos);
 		em.getTransaction().commit();
 	}
 
 	public void remover(Pedido pedidos) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.remove(pedidos);
 		em.getTransaction().commit();
 	}

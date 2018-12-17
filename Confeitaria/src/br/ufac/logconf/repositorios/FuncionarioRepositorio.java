@@ -16,8 +16,8 @@ public class FuncionarioRepositorio {
 	}
 
 	public void adicionar(Funcionario funcionario) {
-
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.persist(funcionario);
 		em.getTransaction().commit();
 
@@ -28,13 +28,15 @@ public class FuncionarioRepositorio {
 	}
 
 	public void atualizar(Funcionario funcionario) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.merge(funcionario);
 		em.getTransaction().commit();
 	}
 
 	public void remover(Funcionario funcionario) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive())
+			em.getTransaction().begin();
 		em.remove(funcionario);
 		em.getTransaction().commit();
 	}
